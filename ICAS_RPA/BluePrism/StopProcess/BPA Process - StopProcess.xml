@@ -1,0 +1,86 @@
+<process name="StopProcess" version="1.0" bpversion="6.6.0.15260" narrative="" byrefcollection="true" preferredid="3efeb213-0a19-4abf-9118-aa93dc62cd4e" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>24</camerax>
+    <cameray>-33</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="64eb4dca-02a6-4548-9d32-42c0e9e0a2f1" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="processname" stage="processname" />
+    </inputs>
+    <onsuccess>c2266439-b5bd-4884-b02b-429737222017</onsuccess>
+  </stage>
+  <stage stageid="3849b21c-5033-48c1-bc6e-a2bffb8feb67" name="End" type="End">
+    <display x="15" y="135" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="f8b32de9-89cb-42a8-9e89-5f2341e66ae5" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="c2266439-b5bd-4884-b02b-429737222017" name="Utility - Environment::Kill Process" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="Process Name" friendlyname="Process Name" narrative="The name of the process to kill" expr="[processname]" />
+    </inputs>
+    <onsuccess>205530b3-8274-4fef-81cd-08f63974f98a</onsuccess>
+    <resource object="Utility - Environment" action="Kill Process" />
+  </stage>
+  <stage stageid="634117e3-6940-43c8-bb44-14d632d384d4" name="processname" type="Data">
+    <display x="165" y="-30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="047a1931-fdae-4fa9-9317-2a22f806cf42" name="Recover1" type="Recover">
+    <loginhibit />
+    <display x="-90" y="-30" />
+    <onsuccess>b7e8a8b2-12a6-4f20-b07d-3a2dce616a75</onsuccess>
+  </stage>
+  <stage stageid="640347b1-8ac6-4c01-9dc3-a423ca364399" name="Resume1" type="Resume">
+    <loginhibit />
+    <display x="-90" y="135" />
+    <onsuccess>3849b21c-5033-48c1-bc6e-a2bffb8feb67</onsuccess>
+  </stage>
+  <stage stageid="b7e8a8b2-12a6-4f20-b07d-3a2dce616a75" name="Error Msg" type="Calculation">
+    <loginhibit onsuccess="true" />
+    <display x="-90" y="45" />
+    <onsuccess>640347b1-8ac6-4c01-9dc3-a423ca364399</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="9a43808f-41d9-4a4b-939e-982370e8a914" name="statusMsg" type="Data">
+    <display x="120" y="60" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="205530b3-8274-4fef-81cd-08f63974f98a" name="Set status" type="Calculation">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="60" />
+    <onsuccess>3849b21c-5033-48c1-bc6e-a2bffb8feb67</onsuccess>
+    <calculation expression="&quot;completed&quot;" stage="statusMsg" />
+  </stage>
+  <stage stageid="53f7fa88-7715-4f14-9682-fb5cbc4d885a" name="inputs" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="135" y="-60" w="105" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="54d11881-e471-4445-a05f-ca1cb80ae5d7" name="outputs" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="75" y="30" w="105" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+</process>

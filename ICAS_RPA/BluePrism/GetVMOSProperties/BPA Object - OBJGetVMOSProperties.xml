@@ -1,0 +1,285 @@
+<process name="OBJGetVMOSProperties" version="1.0" bpversion="6.6.0.15260" narrative="" byrefcollection="true" type="object" runmode="Exclusive" preferredid="ff74a861-3e9c-4171-b43b-a2be0bc31de2">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <appdef>
+    <element name="Application Root">
+      <id>d04b03ab-51a5-45fa-a3f3-682cfff768df</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="2016520a-11bf-41d4-8bbe-851deaea4639" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="034f9fb5-7745-42c2-9145-037f1b6f012c" type="Normal" published="True">
+    <name>Get OS Details</name>
+    <view>
+      <camerax>-475.599976</camerax>
+      <cameray>-45</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="1db19dbb-e602-4258-a0e9-f3dba5c1770f" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>b4f7ddcd-9057-4d9b-8eee-cd287458efa9</onsuccess>
+  </stage>
+  <stage stageid="b4f7ddcd-9057-4d9b-8eee-cd287458efa9" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="5da823ed-ba01-4ecf-b2a7-f0395b5d7c33" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+      <reference>System.Management.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.Management</import>
+    </imports>
+    <language>csharp</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="2c753418-0b8d-483d-83cd-d1b1999a9bc2" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>2016520a-11bf-41d4-8bbe-851deaea4639</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="c68b5071-7513-4a1a-9409-47ac5ddf578e" name="Start" type="Start">
+    <subsheetid>2016520a-11bf-41d4-8bbe-851deaea4639</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>ca05e0ed-06f5-4c68-a53b-2fc6972765e1</onsuccess>
+  </stage>
+  <stage stageid="ca05e0ed-06f5-4c68-a53b-2fc6972765e1" name="End" type="End">
+    <subsheetid>2016520a-11bf-41d4-8bbe-851deaea4639</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="e91e69b0-98f7-4d5c-9402-49c46e951414" name="Get OS Details" type="SubSheetInfo">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <display x="-630" y="-180" w="150" h="90" />
+  </stage>
+  <stage stageid="d6c35903-55c4-4547-8414-155ae11c74a1" name="Start" type="Start">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <loginhibit />
+    <display x="-420" y="-75" />
+    <inputs>
+      <input type="text" name="vmName" stage="vmName" />
+    </inputs>
+    <onsuccess>c577e2ac-7fc6-4f15-915c-dbb30798ecbd</onsuccess>
+  </stage>
+  <stage stageid="3c14d55d-dae6-41f0-932c-660eb7b87e75" name="End" type="End">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <loginhibit />
+    <display x="-420" y="150" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+      <output type="collection" name="vmOSProperties" stage="vmOSProperties" />
+    </outputs>
+  </stage>
+  <stage stageid="7c03dc79-721d-4ff9-9fbd-730ffe982148" name="Note1" type="Note">
+    <subsheetid>2016520a-11bf-41d4-8bbe-851deaea4639</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="ed60cdc7-dd92-4bb9-a4ee-1ddf71b0165c" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="c577e2ac-7fc6-4f15-915c-dbb30798ecbd" name="Code1" type="Code">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <loginhibit />
+    <display x="-420" y="0" />
+    <inputs>
+      <input type="text" name="vmName" expr="[vmName]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="vmOSProperties" stage="vmOSProperties" />
+    </outputs>
+    <onsuccess>34acf008-0ca8-4ba2-bd5c-888f19816c5f</onsuccess>
+    <code><![CDATA[  ConnectionOptions options = new ConnectionOptions();
+       // options.Impersonation = System.Management.ImpersonationLevel.Impersonate;
+DataRow dr;
+vmOSProperties = new DataTable();
+vmOSProperties.Columns.Add("Title");
+vmOSProperties.Columns.Add("Value");
+vmOSProperties.Columns.Add("Machine Name");
+        try
+		{
+        ManagementScope scope = new ManagementScope(@"\\"+vmName+"\\root\\cimv2", options);
+        scope.Connect();
+
+        //Query system for Operating System information
+        ObjectQuery query = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
+        ManagementObjectSearcher searcher = new ManagementObjectSearcher(scope,query);
+
+        ManagementObjectCollection queryCollection = searcher.Get();
+      
+
+
+
+  foreach ( ManagementObject m in queryCollection)
+        {                   
+			
+			 
+            
+		      dr = vmOSProperties.NewRow();   
+           dr["Title"] ="Computer Name";
+		   dr["Value"] = m["csname"];
+		   dr["Machine Name"] =vmName;
+		    vmOSProperties.Rows.Add(dr);
+		   
+		   
+		   
+			 dr = vmOSProperties.NewRow();
+			  
+		    dr["Title"] ="Windows Directory";
+		   dr["Value"] = m["WindowsDirectory"];
+		    dr["Machine Name"] =vmName;
+		   vmOSProperties.Rows.Add(dr);
+		   
+			 dr = vmOSProperties.NewRow();
+			  
+		    dr["Title"] ="Operating System";
+		   dr["Value"] = m["Caption"];
+		   dr["Machine Name"] =vmName;
+		    vmOSProperties.Rows.Add(dr);
+			
+			
+			 dr = vmOSProperties.NewRow();
+			
+		    dr["Title"] ="Version";
+		   dr["Value"] =  m["Version"];
+		      dr["Machine Name"] =vmName;
+			  
+			     vmOSProperties.Rows.Add(dr);
+			
+				 
+				 
+				  dr = vmOSProperties.NewRow();
+			
+		     dr["Title"] ="Manufacturer";
+		   dr["Value"] =  m["Manufacturer"];
+		    dr["Machine Name"] =vmName;
+		   vmOSProperties.Rows.Add(dr);
+		   
+		     dr = vmOSProperties.NewRow();
+			
+		     dr["Title"] ="SerialNumber";
+		   dr["Value"] =  m["SerialNumber"];
+		    dr["Machine Name"] =vmName;
+		   vmOSProperties.Rows.Add(dr);
+		   
+		 
+           
+  
+}
+
+
+		}
+		catch
+		{  dr = vmOSProperties.NewRow();
+			
+		     dr["Title"] ="Invalid VM/Don't have Access";
+		    dr["Machine Name"] =vmName;
+		   vmOSProperties.Rows.Add(dr);}]]></code>
+  </stage>
+  <stage stageid="77bff857-e4c7-4859-82a9-5c7bc9d4e33f" name="Recover1" type="Recover">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <loginhibit />
+    <display x="-330" y="-75" />
+    <onsuccess>9b51584f-8a09-4099-8868-ca1a96208192</onsuccess>
+  </stage>
+  <stage stageid="3bca8159-d4a5-44f1-a92b-7db2ace9e04e" name="Resume1" type="Resume">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <loginhibit />
+    <display x="-330" y="75" />
+    <onsuccess>3c14d55d-dae6-41f0-932c-660eb7b87e75</onsuccess>
+  </stage>
+  <stage stageid="9b51584f-8a09-4099-8868-ca1a96208192" name="Error msg" type="Calculation">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <loginhibit />
+    <display x="-330" y="0" />
+    <onsuccess>3bca8159-d4a5-44f1-a92b-7db2ace9e04e</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="a0452d2f-cfb4-4e13-b047-d9c0155b6e7e" name="input" type="Block">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <loginhibit />
+    <display x="-795" y="-105" w="90" h="150" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="fc68f83f-805e-4173-9ddf-974f60077a5e" name="vmName" type="Data">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <display x="-750" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c5c7e658-dcb8-4396-8d14-76ba681b3108" name="vmOSProperties" type="Collection">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <display x="-630" y="-45" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d29eba35-06f7-426a-8b2a-2fc6f891c8c5" name="statusMsg" type="Data">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <display x="-630" y="0" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="463729f7-f0b1-4196-a08e-676d102715fe" name="Output" type="Block">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <loginhibit />
+    <display x="-675" y="-90" w="90" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="34acf008-0ca8-4ba2-bd5c-888f19816c5f" name="Set Status" type="Calculation">
+    <subsheetid>034f9fb5-7745-42c2-9145-037f1b6f012c</subsheetid>
+    <loginhibit />
+    <display x="-435" y="75" />
+    <onsuccess>3c14d55d-dae6-41f0-932c-660eb7b87e75</onsuccess>
+    <calculation expression="&quot;completed&quot;" stage="statusMsg" />
+  </stage>
+</process>

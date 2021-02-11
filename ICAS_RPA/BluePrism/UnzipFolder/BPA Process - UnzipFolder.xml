@@ -1,0 +1,66 @@
+<process name="UnzipFolder" version="1.0" bpversion="6.6.0.15260" narrative="This is used to unzip folder from source-to-destined location." byrefcollection="true" preferredid="2c2bd005-2ae6-412f-825b-5cd5119f2a5d" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>-124</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="9ad8aeb9-49d8-4ab4-9a4d-dea05aad4474" name="Start" type="Start">
+    <display x="15" y="-30" />
+    <inputs>
+      <input type="text" name="sourceFolder" stage="sourceFolder" />
+      <input type="text" name="destinedFolder" stage="destinedFolder" />
+    </inputs>
+    <onsuccess>ac8082c3-ac00-4fd3-9583-8b0a0e07a55f</onsuccess>
+  </stage>
+  <stage stageid="f0aa5f3e-2cde-446a-b1c7-b6607af82aa8" name="End" type="End">
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="e55e4359-e1b0-445e-9c38-4b62edd821c6" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="ac8082c3-ac00-4fd3-9583-8b0a0e07a55f" name="BfUnzipFolder::UnzipProcess" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="30" />
+    <inputs>
+      <input type="text" name="sourceFolder" friendlyname="sourceFolder" expr="[sourceFolder]" />
+      <input type="text" name="destinedFolder" friendlyname="destinedFolder" expr="[destinedFolder]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>f0aa5f3e-2cde-446a-b1c7-b6607af82aa8</onsuccess>
+    <resource object="OBJUnzipFolder" action="UnzipProcess" />
+  </stage>
+  <stage stageid="8fa6f7ca-8508-4653-8b94-501ce6470d0f" name="sourceFolder" type="Data">
+    <display x="-240" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8bce5cf9-0c17-43df-933d-f01e2a80ec69" name="destinedFolder" type="Data">
+    <display x="-240" y="60" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f111ce48-4193-424d-b727-50ed16905a0e" name="statusMsg" type="Data">
+    <display x="-165" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+</process>

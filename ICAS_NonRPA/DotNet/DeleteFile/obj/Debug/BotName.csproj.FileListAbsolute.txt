@@ -1,0 +1,2 @@
+C:\Users\akhil.krishna\source\repos\BotName\bin\Debug\BotName.dll
+C:\Users\akhil.krishna\source\repos\BotName\bin\Debug\BotName.pdb

@@ -1,0 +1,175 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="ProcessingFollowUpMail"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:snm="clr-namespace:System.Net.Mail;assembly=System"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_MailContentPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_ToMailDetailsDR" Type="InArgument(sd:DataRow)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ProcessingFollowUpMail_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Globalization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Sends follow up mail." DisplayName="ProcessingFollowUpMail" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="MailBody" />
+      <Variable x:TypeArguments="x:String" Name="newReplyText" />
+      <Variable x:TypeArguments="x:String" Name="toMailID" />
+      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="sentMails" />
+      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="mail" />
+      <Variable x:TypeArguments="x:String" Name="mailBodyFormatted" />
+      <Variable x:TypeArguments="x:String" Name="htmlReplyText" />
+      <Variable x:TypeArguments="x:Int32" Name="timeOut" />
+    </Sequence.Variables>
+    <ui:ReadTextFile Content="[MailBody]" DisplayName="Read Mail Content to Send" FileName="[in_MailContentPath]" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <Assign DisplayName="Get TimeOut for Outlook from Config" sap2010:WorkflowViewState.IdRef="Assign_14">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[timeOut]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(Convert.ToDouble(in_Config("TimeOutToCheckMails")))]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Get To Mail Id" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[toMailID]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_ToMailDetailsDR(0).ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <WriteLine DisplayName="Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Sending Follow Up to: &quot;+toMailID.ToString]" />
+    <ui:GetOutlookMailMessages Account="{x:Null}" DisplayName="Get Outlook Sent Items with Matching subject" Filter="[&quot;@SQL=&quot; + &quot;&quot;&quot;&quot; + &quot;urn:schemas:httpmail:subject&quot; + &quot;&quot;&quot;&quot;  + &quot; like '%&quot;+in_Config(&quot;MailSubject&quot;).ToString+&quot;%'&quot;]" GetAttachements="False" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_2" MailFolder="Sent Items" MarkAsRead="False" Messages="[sentMails]" OnlyUnreadMessages="False" TimeoutMS="[timeOut]" Top="5" />
+    <Assign DisplayName="Get the last sent Mail to the corresponding Id" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(snm:MailMessage)">[mail]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(snm:MailMessage)">[(From m In sentMails Where m.To.ToString.Contains(toMailID.ToString) Order By m.Headers.Get("date") Descending Select m).ToList]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Get the already sent Mail Body" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[htmlReplyText]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[mail(0).Headers("HTMLBody").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Formatted new Mail Body Content" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[mailBodyFormatted]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[String.Format(MailBody,in_ToMailDetailsDR(1).ToString).ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="New Mail Body with the new content and the already sent Content" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[newReplyText]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[String.Concat(mailBodyFormatted.ToString,Environment.NewLine,Environment.NewLine,"From: ", mail(0).From.Address.ToString,"&lt;br/&gt;","Sent: ",mail(0).Headers.Get("date").ToString(CultureInfo.InvariantCulture),"&lt;br/&gt;","To: ",String.Join(",",mail(0).To.ToString) ,"&lt;br/&gt;","Cc: ",String.Join(",",mail(0).CC.ToString),"&lt;br/&gt;","Subject: ",mail(0).Subject.ToString,"&lt;br/&gt;","&lt;br/&gt;", htmlReplyText)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:SendOutlookMail MailMessage="{x:Null}" Account="[in_Config(&quot;FromMailID&quot;).ToString]" Bcc="[string.Join(&quot;;&quot;,in_Config(&quot;BCCMailID&quot;).ToString)]" Body="[newReplyText]" Cc="[string.Join(&quot;;&quot;,in_Config(&quot;CCMailID&quot;).ToString)]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_3" IsBodyHtml="True" IsDraft="False" Subject="[&quot;RE: &quot;+mail(0).Subject.ToString]" TimeoutMS="[timeOut]" To="[in_ToMailDetailsDR(0).ToString]">
+      <ui:SendOutlookMail.Files>
+        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+      </ui:SendOutlookMail.Files>
+    </ui:SendOutlookMail>
+    <sads:DebugSymbol.Symbol>d29EOlxTVk5cdHJ1bmtcUHJvb2ZPZkNvbmNlcHRcRnJhbWV3b3JrXE1hc3NNYWlsaW5nQ1BUSW50ZXJuYWxcUHJvY2Vzc2luZyZTZW5kaW5nTWFpbFxQcm9jZXNzaW5nRm9sbG93VXBNYWlsLnhhbWwmTQORAQ4CAQFYBVimAQIBNVkFYA4CATFhBWgOAgEtaQVplwECASpqBWqPBAIBIWsFcg4CAR1zBXoOAgEYewWCAQ4CARSDAQWKAQ4CARCLAQWPARoCAQJYXFhyAgE4WB5YKgIBNl4vXnQCATRbMFs5AgEyZjBmUAIBMGMxYzsCAS5pXGmUAQIBK2qJBGqMBAIBKWr5A2qEBAIBJ2p1ar4CAgElasYDatMDAgEjap0DaqkDAgEicEFwwgECASBtQm1IAgEeeDB4VgIBG3UxdUACARmAATCAAXECARd9MX1EAgEViAEwiAHYAwIBE4UBMYUBPwIBEYsB4gOLAYQEAgEPiwE4iwFmAgENiwFriwGzAQIBC4sB0wOLAd4DAgEJiwHNAYsBlAICAQeLAbkBiwHJAQIBBYsBmwOLAcgDAgED</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="ReadTextFile_1" sap:VirtualizedContainerService.HintSize="314,59">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_14" sap:VirtualizedContainerService.HintSize="314,60" />
+      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="314,60" />
+      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="314,61" />
+      <sap2010:ViewStateData Id="GetOutlookMailMessages_2" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Assign_8" sap:VirtualizedContainerService.HintSize="314,60" />
+      <sap2010:ViewStateData Id="Assign_13" sap:VirtualizedContainerService.HintSize="314,60" />
+      <sap2010:ViewStateData Id="Assign_9" sap:VirtualizedContainerService.HintSize="314,60" />
+      <sap2010:ViewStateData Id="Assign_10" sap:VirtualizedContainerService.HintSize="314,60" />
+      <sap2010:ViewStateData Id="SendOutlookMail_3" sap:VirtualizedContainerService.HintSize="314,145" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="336,1131">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ProcessingFollowUpMail_1" sap:VirtualizedContainerService.HintSize="376,1211" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

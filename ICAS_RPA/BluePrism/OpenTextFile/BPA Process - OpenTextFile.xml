@@ -1,0 +1,67 @@
+<process name="OpenTextFile" version="1.0" bpversion="6.6.0.15260" narrative="It will open text file from given path" byrefcollection="true" preferredid="1e0e6b5c-b7a9-480b-ae98-71dbef8c440f" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>15</camerax>
+    <cameray>-21</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="6cc73442-553f-40a7-b4f9-cda301037db1" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="filename" stage="fileName" />
+    </inputs>
+    <onsuccess>1f1bc95c-55c3-40dc-bb7d-93de66bade75</onsuccess>
+  </stage>
+  <stage stageid="8a4d54d6-c4fc-455e-8419-dd58d7bb6a64" name="End" type="End">
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="d4c6bb47-fde6-4f57-bab3-467bcf15d1b5" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="1f1bc95c-55c3-40dc-bb7d-93de66bade75" name="OBJOpenTextFile::Open file" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-30" />
+    <inputs>
+      <input type="text" name="filename" friendlyname="filename" expr="[fileName]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>8a4d54d6-c4fc-455e-8419-dd58d7bb6a64</onsuccess>
+    <resource object="OBJOpenTextFile" action="Open file" />
+  </stage>
+  <stage stageid="6add7cc0-dfca-4b68-ba7f-df17ea7dcb55" name="fileName" type="Data">
+    <display x="-180" y="-15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="de150d3e-24b7-4d52-8ee4-cd35fa728528" name="statusMsg" type="Data">
+    <display x="-210" y="90" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f874dc24-58e2-43d3-9117-a67d6fc76bc4" name="input" type="Block">
+    <loginhibit />
+    <display x="-255" y="-45" w="120" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="d94aa200-5d24-499a-9783-7b311334d492" name="output" type="Block">
+    <loginhibit />
+    <display x="-270" y="60" w="120" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+</process>

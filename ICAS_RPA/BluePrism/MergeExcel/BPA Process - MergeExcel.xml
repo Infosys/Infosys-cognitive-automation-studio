@@ -1,0 +1,113 @@
+<process name="MergeExcel" version="1.0" bpversion="6.6.0.15260" narrative="Merging Excel files" byrefcollection="true" preferredid="481b548d-8a93-4d41-ab64-71732fd6ba30" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="07036517-42cd-4e41-8670-a5a987459dcb" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="filePath1" stage="filePath1" />
+      <input type="text" name="filePath2" stage="filePath2" />
+      <input type="text" name="filePath3" stage="filePath3" />
+      <input type="text" name="book1Sheet" stage="book1Sheet" />
+      <input type="text" name="book2Sheet" stage="book2Sheet" />
+      <input type="text" name="book3Sheet" stage="book3Sheet" />
+    </inputs>
+    <onsuccess>2d51ea7f-e63b-455b-9a19-cf51408567ed</onsuccess>
+  </stage>
+  <stage stageid="06f5aa6a-7ceb-4b1d-9cb4-c8acdd2a4959" name="End" type="End">
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="d5b3700f-c56b-4357-9d4c-97939452175a" name="Stage1" type="ProcessInfo">
+    <display x="-270" y="-135" w="150" h="90" />
+  </stage>
+  <stage stageid="2d51ea7f-e63b-455b-9a19-cf51408567ed" name="MergeExcel" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="FilePath1" friendlyname="FilePath1" expr="[filePath1]" />
+      <input type="text" name="FilePath2" friendlyname="FilePath2" expr="[filePath2]" />
+      <input type="text" name="FilePath3" friendlyname="FilePath3" expr="[filePath3]" />
+      <input type="text" name="Book1Sheet" friendlyname="Book1Sheet" expr="[book1Sheet]" />
+      <input type="text" name="Book2Sheet" friendlyname="Book2Sheet" expr="[book2Sheet]" />
+      <input type="text" name="Book3Sheet" friendlyname="Book3Sheet" expr="[book3Sheet]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Status" friendlyname="Status" stage="" />
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>06f5aa6a-7ceb-4b1d-9cb4-c8acdd2a4959</onsuccess>
+    <resource object="OBJMergeExcel" action="Main" />
+  </stage>
+  <stage stageid="0cf43238-7d57-47c2-abea-8b2ab80c83ee" name="Block1" type="Block">
+    <loginhibit />
+    <display x="-315" y="-75" w="240" h="120" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="9f73efe8-c761-4d74-8b61-07182fb847e5" name="filePath1" type="Data">
+    <display x="-270" y="-45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3eac5d25-8171-4357-82de-6e3db369d128" name="filePath2" type="Data">
+    <display x="-195" y="-45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="27611de3-454f-4042-87d2-587e4ed1ff4e" name="filePath3" type="Data">
+    <display x="-120" y="-45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2b977367-1ab8-414c-a7d2-5822ff488d34" name="book1Sheet" type="Data">
+    <display x="-270" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c6cf7d15-cb69-4851-b9d6-31f0a242eb8f" name="book2Sheet" type="Data">
+    <display x="-195" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="fba52cf6-49cb-476c-83e2-35f864de420f" name="book3Sheet" type="Data">
+    <display x="-120" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="516d27b3-4105-4f42-8fc7-d01657d35d51" name="statusMsg" type="Data">
+    <display x="-210" y="120" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f39b4f7f-1111-43cf-8d9a-cd384153c1a5" name="Output" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-255" y="90" w="90" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+</process>

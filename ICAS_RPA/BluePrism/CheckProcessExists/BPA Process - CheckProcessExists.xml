@@ -1,0 +1,66 @@
+<process name="CheckProcessExists" version="1.0" bpversion="6.6.0.15260" narrative="By using this BP bot we can check the given process is exist/Running" byrefcollection="true" preferredid="0ecb9b1e-a78a-4272-aed1-2a971061db01" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="0c7754c5-e85f-472e-a29c-780fd7a5dee7" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="processName" stage="processName" />
+    </inputs>
+    <onsuccess>a03d97b8-b5c6-4a48-bf68-bec9523b208c</onsuccess>
+  </stage>
+  <stage stageid="2d52b9f6-3dbe-4c91-9803-605da86d4029" name="End" type="End">
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="status" stage="status" />
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="501a6ece-f7c3-4a16-a6c9-606c3a723ec9" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="a03d97b8-b5c6-4a48-bf68-bec9523b208c" name="OBJCheckProcessExists::Action 1" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="0" />
+    <inputs>
+      <input type="text" name="processName" friendlyname="processName" expr="[processName]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="status" friendlyname="status" stage="status" />
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>2d52b9f6-3dbe-4c91-9803-605da86d4029</onsuccess>
+    <resource object="OBJCheckProcessExists" action="Action 1" />
+  </stage>
+  <stage stageid="af01250c-645d-47a4-a583-fc3260b6e00a" name="processName" type="Data">
+    <display x="-270" y="0" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">Automate</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="176ef823-5099-4e4e-b1e5-d90e23a0b096" name="status" type="Data">
+    <display x="-180" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ba26ef0e-8df3-4f76-beda-acdab8395666" name="statusMsg" type="Data">
+    <display x="-120" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+</process>

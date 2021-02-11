@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body><span style="font-size:14.5px"><span style="font-family:Calibri"><span style="color:#1F497D">Hi {0},<br />
+&nbsp;<br />
+Follow up mail two content.
+<br/>
+<table border="0" cellpadding="0">
+	<tbody>
+		<tr><td><span style="font-family:Helvetica"><span style="font-size:14px"><span style="color:#646464">Regards,</td></tr>
+		<tr><td><span style="font-family:Helvetica"><span style="font-size:20px"><span style="color:#525252"><strong>Sender</strong></td></tr>
+		<tr><td><span style="font-family:Helvetica"><span style="font-size:14px"><span style="color:#646464"><strong><em>Sender Signature Line one</em></strong><hr size="0.1px"/></td></tr>
+	</tbody>
+</table>
+</body>
+</html>

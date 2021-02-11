@@ -1,0 +1,29 @@
+<breakfast_menu>
+<food>
+<name>Belgian Waffle</name>
+<price>$5.95</price>
+<description>With real maple syrup</description>
+<calories>650</calories>
+</food>
+<food>
+<name>Strawberry Waffle</name>
+<price>$6.2</price>
+<description>With Chocolate Syrup</description>
+<calories>720</calories>
+</food>
+<food>
+<name>Berry Berry Waffle</name>
+<price>$7.8</price>
+<description>With Caramel Syrup</description>
+<calories>620</calories>
+</food>
+<food>
+<name>Banana Strawberry Waffle</name>
+<price>$9.2</price>
+<description>With real maple syrup</description>
+<calories>370</calories>
+</food>
+</breakfast_menu>
+
+
+

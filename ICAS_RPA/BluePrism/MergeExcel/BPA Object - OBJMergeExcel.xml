@@ -1,0 +1,951 @@
+<process name="OBJMergeExcel" version="1.0" bpversion="6.6.0.15260" narrative="." byrefcollection="true" type="object" runmode="Exclusive" preferredid="273ab610-ebb5-4953-9e06-067d8fdf4f99">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <appdef>
+    <element name="Application Root">
+      <id>7c8b1c13-2be9-4709-b704-08c87222ed2c</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="61a7aa29-82a5-4717-884c-61854d645988" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="1bb59fd8-55b5-44a2-be7d-326bd867b25b" type="Normal" published="True">
+    <name>Main</name>
+    <view>
+      <camerax>-199</camerax>
+      <cameray>45</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="863cbe10-2b22-45e6-bbda-9c2740886be9" type="Normal" published="False">
+    <name>CheckFileExistence</name>
+    <view>
+      <camerax>-121</camerax>
+      <cameray>-33</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="064bf57a-a6af-4293-a767-843b6ae205ab" type="Normal" published="False">
+    <name>CheckSheetExistence</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>-3</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="ba0cecf3-f9b5-4482-873a-d7c4bdf608bf" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>f736c737-0c17-46c9-bcf6-d8e8308bca72</onsuccess>
+  </stage>
+  <stage stageid="f736c737-0c17-46c9-bcf6-d8e8308bca72" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="10be1921-75e9-45ad-ad64-3eab0b94623a" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+    </imports>
+    <language>visualbasic</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="980bf30d-da2c-4e60-b173-b40e9e573173" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>61a7aa29-82a5-4717-884c-61854d645988</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="ef2ef0f4-7fbf-460e-b8af-7a3672c1cb01" name="Start" type="Start">
+    <subsheetid>61a7aa29-82a5-4717-884c-61854d645988</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>e139dc08-cb24-4348-8c95-3a190c94756e</onsuccess>
+  </stage>
+  <stage stageid="e139dc08-cb24-4348-8c95-3a190c94756e" name="End" type="End">
+    <subsheetid>61a7aa29-82a5-4717-884c-61854d645988</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="8f25d85f-8594-465d-b008-041e61da487c" name="Main" type="SubSheetInfo">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-570" y="-240" w="150" h="90" />
+  </stage>
+  <stage stageid="e82b9c90-7d5b-4b5c-933d-e54c9c2858a4" name="Start" type="Start">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-300" y="-255" />
+    <inputs>
+      <input type="text" name="FilePath1" stage="filePath1" />
+      <input type="text" name="FilePath2" stage="filePath2" />
+      <input type="text" name="FilePath3" stage="filePath3" />
+      <input type="text" name="Book1Sheet" stage="book1Sheet" />
+      <input type="text" name="Book2Sheet" stage="book2Sheet" />
+      <input type="text" name="Book3Sheet" stage="book3Sheet" />
+    </inputs>
+    <onsuccess>ced45e34-2bcc-49e1-bad7-d8afd8395068</onsuccess>
+  </stage>
+  <stage stageid="bcd7802f-8bd6-4c84-9119-81b297714da6" name="End" type="End">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-15" y="90" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="68c05b4f-770a-4a48-93b0-63736390aa6c" name="Note1" type="Note">
+    <subsheetid>61a7aa29-82a5-4717-884c-61854d645988</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="c2d6d6f0-36dd-43bd-97cf-f1339349e8ac" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="b92f38fa-2c8e-45d4-a992-c6cfa6e6443d" name="Create Instance" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-90" y="-210" />
+    <inputs>
+      <input type="flag" name="Enable Events" narrative="Flag to indicate that events should be enabled / disabled on the attached instance - defaulted to True" expr="True" />
+    </inputs>
+    <outputs>
+      <output type="number" name="handle" narrative="An integer which can be used to identify the created instance in subsequent actions" stage="handle" />
+    </outputs>
+    <onsuccess>e2fcc1a3-41dc-443a-9987-8a7bc09ee0aa</onsuccess>
+    <resource object="MS Excel VBO" action="Create Instance" />
+  </stage>
+  <stage stageid="9a4f115a-b9fb-42f3-a4da-f0063459fde6" name="handle" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-420" y="-255" w="90" h="30" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5512632c-65f2-493e-9033-d4c091d436b5" name="Open Workbook1" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="75" y="-150" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required workbook should be opened. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="File name" narrative="The path and name of the file which should be opened." expr="[filePath1]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name used by Excel to identify the workbook - usually this is the file name (without the path)." stage="workbookName1" />
+    </outputs>
+    <onsuccess>72d0bf9c-6a8b-438a-b2fe-0bda2883a5fe</onsuccess>
+    <resource object="MS Excel VBO" action="Open Workbook" />
+  </stage>
+  <stage stageid="3d214a31-65ea-4892-9ba2-6d1fd92492de" name="workbookName1" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-420" y="-210" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e9fc0603-0029-41b3-bdd5-12a038f1116e" name="workbookName2" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-420" y="-165" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d3092280-cfb3-4a1e-8220-1d9601b87e38" name="filePath1" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-555" y="-150" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="faef7c39-8224-4b16-adf4-5e1a8ccd94a6" name="filePath2" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-555" y="-105" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="72d0bf9c-6a8b-438a-b2fe-0bda2883a5fe" name="Collection1" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="0" y="-150" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the worksheet which should be retrieved resides. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook which contains the sheet required. The default empty text indicates the currently active workbook on the specified instance." expr="[workbookName1]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet within the specified workbook which should be written to a collection. The default empty text indicates the currently active worksheet within the specified workbook." expr="[book1Sheet]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Data" narrative="The collection containing the data from the specified worksheet - the column IDs will be gleaned from the first row on the sheet being retrieved." stage="dataColl1" />
+    </outputs>
+    <onsuccess>c7cd31be-3820-4bff-b745-8a40a10bd78b</onsuccess>
+    <resource object="MS Excel VBO" action="Get Worksheet As Collection" />
+  </stage>
+  <stage stageid="74f5fb08-29c7-4c92-ae19-c4817942b9ed" name="book1Sheet" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-555" y="-15" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4496b321-7468-4345-8a68-843eed95eb8f" name="book2Sheet" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-555" y="30" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7fe7d62b-d85d-4180-b9bb-048c325c49f6" name="dataColl1" type="Collection">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-420" y="-75" w="90" h="30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ab364d1c-fcce-4ce8-9145-390c70a9d187" name="Open Workbook2" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-225" y="-150" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required workbook should be opened. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="File name" narrative="The path and name of the file which should be opened." expr="[filePath2]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name used by Excel to identify the workbook - usually this is the file name (without the path)." stage="workbookName2" />
+    </outputs>
+    <onsuccess>1ab23d75-128f-466e-aec2-8ed5eb01cd35</onsuccess>
+    <resource object="MS Excel VBO" action="Open Workbook" />
+  </stage>
+  <stage stageid="08cd78d6-4d4d-4584-8f8c-be0920ad5d08" name="Anchor1" type="Anchor">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-150" y="-150" w="10" h="10" />
+    <onsuccess>c8fae68f-0bf8-4ea4-94de-69ace4114072</onsuccess>
+  </stage>
+  <stage stageid="c8fae68f-0bf8-4ea4-94de-69ace4114072" name="Anchor2" type="Anchor">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-180" y="-150" w="10" h="10" />
+    <onsuccess>ab364d1c-fcce-4ce8-9145-390c70a9d187</onsuccess>
+  </stage>
+  <stage stageid="c7cd31be-3820-4bff-b745-8a40a10bd78b" name="Close WorkBook1" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-90" y="-150" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook which should be closed resides. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook which should be closed." expr="[workbookName1]" />
+      <input type="flag" name="Save Data" narrative="True to save the data before closing the workbook; The default of False will discard any changes before closing the workbook." expr="True" />
+    </inputs>
+    <onsuccess>08cd78d6-4d4d-4584-8f8c-be0920ad5d08</onsuccess>
+    <resource object="MS Excel VBO" action="Close Workbook" />
+  </stage>
+  <stage stageid="1ab23d75-128f-466e-aec2-8ed5eb01cd35" name="Collection1" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-300" y="-150" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the worksheet which should be retrieved resides. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook which contains the sheet required. The default empty text indicates the currently active workbook on the specified instance." expr="[workbookName2]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet within the specified workbook which should be written to a collection. The default empty text indicates the currently active worksheet within the specified workbook." expr="[book2Sheet]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Data" narrative="The collection containing the data from the specified worksheet - the column IDs will be gleaned from the first row on the sheet being retrieved." stage="dataColl2" />
+    </outputs>
+    <onsuccess>50c603bf-6aeb-4ed5-8b20-c71e1b578173</onsuccess>
+    <resource object="MS Excel VBO" action="Get Worksheet As Collection" />
+  </stage>
+  <stage stageid="50c603bf-6aeb-4ed5-8b20-c71e1b578173" name="Close WorkBook2" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-300" y="-105" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook which should be closed resides. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook which should be closed." expr="[workbookName2]" />
+      <input type="flag" name="Save Data" narrative="True to save the data before closing the workbook; The default of False will discard any changes before closing the workbook." expr="True" />
+    </inputs>
+    <onsuccess>63e9b79c-112d-4f1f-84c7-44d39f751799</onsuccess>
+    <resource object="MS Excel VBO" action="Close Workbook" />
+  </stage>
+  <stage stageid="e53a8835-4f7b-4ac5-981e-c6048a44631a" name="dataColl2" type="Collection">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-420" y="-30" w="90" h="30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4af5254c-f07b-4cea-a2d6-d863e2a6f9db" name="Merge Collection" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-150" y="-105" />
+    <inputs>
+      <input type="collection" name="Collection 1" narrative="The first collection to be merged." expr="[dataColl1]" />
+      <input type="collection" name="Collection 2" narrative="The second collection to be merged." expr="[dataColl2]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Collection 3" narrative="The resulting merged collection." stage="collection 3" />
+    </outputs>
+    <onsuccess>78e6b1df-77d0-47e7-b4b7-b9f3f9415af5</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Merge Collection" />
+  </stage>
+  <stage stageid="affbfe21-206d-4d08-a6ff-c591b55aac25" name="collection 3" type="Collection">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-420" y="15" w="90" h="30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4a414b1e-3a59-4f1a-9861-8d656251988e" name="Write Collection to Excel" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-210" y="0" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the specified collection should be written. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook within which the data should be written. The default empty value indicates the current workbook within the specified instance." expr="[workbookName3]" />
+      <input type="collection" name="Collection" narrative="The collection containing the data which should be written to the worksheet." expr="[collection 3]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet on which the given data should be written. The default empty value indicates the current sheet within the specified workbook." expr="[book3Sheet]" />
+      <input type="text" name="Cell Reference" narrative="The reference at which the collection should be written." expr="&quot;A1&quot;" />
+      <input type="flag" name="Include Column Names" narrative="True to indicate that the column names from the collection should be written out as the first row; False to ignore the column names and just write out the data." expr="True" />
+    </inputs>
+    <onsuccess>03c4b79f-8b68-46f0-aa50-b9092a6d0914</onsuccess>
+    <resource object="MS Excel VBO" action="Write Collection" />
+  </stage>
+  <stage stageid="b532e3cf-dffc-42c2-a28e-4f5971f813b3" name="workbookName3" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-420" y="-120" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="227ec7bf-cc60-4c52-8c8a-db6223042437" name="book3Sheet" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-555" y="75" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b8d485b6-64de-4366-a085-c259fdf27344" name="filePath3" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-555" y="-60" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6f9f9671-181e-499f-b94c-4ec3e52de5b8" name="Create Workbook3" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-45" y="-60" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook should be created. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name of the workbook that Excel has created - this can be changed using the &quot;Save Workbook As&quot; action" stage="workbookName3" />
+    </outputs>
+    <onsuccess>1056e6a7-a42d-4043-92c2-e604cd228bf2</onsuccess>
+    <resource object="MS Excel VBO" action="Create Workbook" />
+  </stage>
+  <stage stageid="8cef5fe7-319d-4a4f-8ca9-1a8d0d9de005" name="Anchor3" type="Anchor">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-210" y="-105" w="10" h="10" />
+    <onsuccess>4af5254c-f07b-4cea-a2d6-d863e2a6f9db</onsuccess>
+  </stage>
+  <stage stageid="63e9b79c-112d-4f1f-84c7-44d39f751799" name="Anchor4" type="Anchor">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-240" y="-105" w="10" h="10" />
+    <onsuccess>8cef5fe7-319d-4a4f-8ca9-1a8d0d9de005</onsuccess>
+  </stage>
+  <stage stageid="03c4b79f-8b68-46f0-aa50-b9092a6d0914" name="Save Workbook3" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-300" y="0" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance for which the current workbook which should be saved. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="File name" narrative="The full path and file name to which the current workbook should be saved." expr="[filePath3]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="New Workbook Name" narrative="The new workbook name which Excel will use to identify the workbook." stage="workbookName3" />
+    </outputs>
+    <onsuccess>a2b96b6c-9741-47c3-8a36-2f17a25efab4</onsuccess>
+    <resource object="MS Excel VBO" action="Save Current Workbook As" />
+  </stage>
+  <stage stageid="83ae6670-4a01-4d4a-96cc-71a707a169ce" name="CheckFileExistence" type="SubSheetInfo">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <display x="-465" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="24005fdf-7522-479e-be06-d3329aba8112" name="Start" type="Start">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-165" y="-210" />
+    <inputs>
+      <input type="text" name="filePath1" stage="filePath1" />
+      <input type="text" name="filePath2" stage="filePath2" />
+    </inputs>
+    <onsuccess>85a1bd58-0667-4de2-85ba-afc39ab8d533</onsuccess>
+  </stage>
+  <stage stageid="abc3ce99-e794-4d7d-a477-5635d749e54d" name="End" type="End">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-165" y="90" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="07f2e2f8-4f63-4b74-b247-c31cd454342b" name="CheckSheetExistence" type="SubSheetInfo">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="e79b4e9e-6be6-41dc-9ac2-11d335d25f5a" name="Start" type="Start">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="0" y="-180" />
+    <inputs>
+      <input type="text" name="workbookName1" stage="workbookName1" />
+      <input type="text" name="workbookName2" stage="workbookName2" />
+      <input type="text" name="book1Sheet" stage="book1Sheet" />
+      <input type="text" name="book2Sheet" stage="book2Sheet" />
+    </inputs>
+    <onsuccess>0cf8385b-5644-4eef-9dbd-b527f395d5fc</onsuccess>
+  </stage>
+  <stage stageid="4a517ba4-8316-4c77-86be-d8f1d89fab38" name="End" type="End">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="0" y="120" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="85a1bd58-0667-4de2-85ba-afc39ab8d533" name="File Exists1" type="Action">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-165" y="-150" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The name of the file to check" expr="[filePath1]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Exists" narrative="True if the file exists" stage="fileExistsBool" />
+    </outputs>
+    <onsuccess>5ffc1af4-643b-4bb4-b1cb-15cc9b44759e</onsuccess>
+    <resource object="Utility - File Management" action="File Exists" />
+  </stage>
+  <stage stageid="a789c308-7636-4149-843c-aa6b3968cf9a" name="fileExistsBool" type="Data">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <display x="-375" y="-15" w="90" h="30" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e5012665-980c-4e5a-a673-406e6329e462" name="File Exists2" type="Action">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-165" y="-60" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The name of the file to check" expr="[filePath2]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Exists" narrative="True if the file exists" stage="fileExistsBool" />
+    </outputs>
+    <onsuccess>2c99598e-20c0-4779-b054-f0a37e2cd6c5</onsuccess>
+    <resource object="Utility - File Management" action="File Exists" />
+  </stage>
+  <stage stageid="5ffc1af4-643b-4bb4-b1cb-15cc9b44759e" name="If Exists1" type="Decision">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-165" y="-105" />
+    <decision expression="[fileExistsBool] = True" />
+    <ontrue>e5012665-980c-4e5a-a673-406e6329e462</ontrue>
+    <onfalse>0455830e-a6d7-49c2-9a8b-4ed1896782bf</onfalse>
+  </stage>
+  <stage stageid="2c99598e-20c0-4779-b054-f0a37e2cd6c5" name="If Exists2" type="Decision">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-165" y="-15" />
+    <decision expression="[fileExistsBool] = True" />
+    <ontrue>a28fb21b-d66c-4399-bf11-26bc626cd836</ontrue>
+    <onfalse>67a12554-a5c3-4818-87a5-be5e0d0d0d98</onfalse>
+  </stage>
+  <stage stageid="0455830e-a6d7-49c2-9a8b-4ed1896782bf" name="ErrorMessage1" type="Calculation">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-75" y="-105" />
+    <onsuccess>b2fc9fe1-0cde-4cb7-adb4-43dc9e0c33ab</onsuccess>
+    <calculation expression="[filePath1]&amp; &quot; does not exist.&quot;" stage="status" />
+  </stage>
+  <stage stageid="67a12554-a5c3-4818-87a5-be5e0d0d0d98" name="ErrorMessage2" type="Calculation">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-75" y="-15" />
+    <onsuccess>e777366f-a6eb-4033-8a58-583aa16de198</onsuccess>
+    <calculation expression="[filePath2] &amp; &quot; does not exist.&quot;" stage="status" />
+  </stage>
+  <stage stageid="f4069dee-91d9-416e-8a19-ebcabe350f88" name="status" type="Data">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <display x="-525" y="-15" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="81d366fd-a829-406b-8ad1-11386a4952d9" name="InternalParams" type="Block">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-480" y="-285" w="120" h="420" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="8d95a5eb-b6da-4de4-af5e-ea363d4bca0e" name="InParams" type="Block">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-615" y="-180" w="120" h="285" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="a67566b8-a9ef-41b4-b95a-848cb0cc1e01" name="InternalParams" type="Block">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-435" y="-45" w="120" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="d8ce354f-02bb-4c8b-bddf-3b7018df4a06" name="OutParams" type="Block">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-585" y="-45" w="120" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="b2fc9fe1-0cde-4cb7-adb4-43dc9e0c33ab" name="Anchor5" type="Anchor">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-15" y="-105" w="10" h="10" />
+    <onsuccess>e777366f-a6eb-4033-8a58-583aa16de198</onsuccess>
+  </stage>
+  <stage stageid="e777366f-a6eb-4033-8a58-583aa16de198" name="Anchor6" type="Anchor">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-15" y="-15" w="10" h="10" />
+    <onsuccess>01705857-f387-4196-92f3-7cab1b3b246f</onsuccess>
+  </stage>
+  <stage stageid="01705857-f387-4196-92f3-7cab1b3b246f" name="Anchor7" type="Anchor">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-15" y="90" w="10" h="10" />
+    <onsuccess>abc3ce99-e794-4d7d-a477-5635d749e54d</onsuccess>
+  </stage>
+  <stage stageid="ced45e34-2bcc-49e1-bad7-d8afd8395068" name="CheckFileExistence" type="SubSheet">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-210" y="-255" />
+    <inputs>
+      <input type="text" name="filePath1" friendlyname="filePath1" expr="[filePath1]" />
+      <input type="text" name="filePath2" friendlyname="filePath2" expr="[filePath2]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>41167096-b173-4e4c-818f-ff2fe4a94d0d</onsuccess>
+    <processid>863cbe10-2b22-45e6-bbda-9c2740886be9</processid>
+  </stage>
+  <stage stageid="e2fcc1a3-41dc-443a-9987-8a7bc09ee0aa" name="CheckSheetExistence" type="SubSheet">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-15" y="-210" />
+    <inputs>
+      <input type="text" name="workbookName1" friendlyname="workbookName1" expr="[workbookName1]" />
+      <input type="text" name="workbookName2" friendlyname="workbookName2" expr="[workbookName2]" />
+      <input type="text" name="book1Sheet" friendlyname="book1Sheet" expr="[book1Sheet]" />
+      <input type="text" name="book2Sheet" friendlyname="book2Sheet" expr="[book2Sheet]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>658e14e3-4677-4784-8369-19d72b1c0f98</onsuccess>
+    <processid>064bf57a-a6af-4293-a767-843b6ae205ab</processid>
+  </stage>
+  <stage stageid="658e14e3-4677-4784-8369-19d72b1c0f98" name="Check Status For Sheets" type="Decision">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="75" y="-210" />
+    <decision expression="[status] = &quot;Go Ahead...&quot;" />
+    <ontrue>4ed68374-8568-431b-b2c0-2508e224b5da</ontrue>
+    <onfalse>b926f749-a060-44c3-8360-ca045eef8565</onfalse>
+  </stage>
+  <stage stageid="4ed68374-8568-431b-b2c0-2508e224b5da" name="Anchor8" type="Anchor">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="75" y="-180" w="10" h="10" />
+    <onsuccess>5512632c-65f2-493e-9033-d4c091d436b5</onsuccess>
+  </stage>
+  <stage stageid="0cf8385b-5644-4eef-9dbd-b527f395d5fc" name="Sheet Exists1" type="Action">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="0" y="-120" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the number of rows is required. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook on which the number of rows is required. The default empty text value indicates the currently active workbook on the specified instance." expr="[workbookName1]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet of interest; it will be checked for existence" expr="[book1Sheet]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Worksheet Exists" narrative="Indicates whether or not the named worksheet exists" stage="sheetExistsBool" />
+    </outputs>
+    <onsuccess>05c2a829-4108-4175-832b-022bc9d7a4b8</onsuccess>
+    <resource object="MS Excel VBO" action="Worksheet Exists" />
+  </stage>
+  <stage stageid="9efdf4ae-786f-416c-b49e-6eacdf4af6ee" name="sheetExistsBool" type="Data">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <display x="-195" y="30" w="90" h="30" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="fdb68c8c-87ab-403a-a53e-ddc4d0c7b2ea" name="Sheet Exists2" type="Action">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="0" y="-30" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the number of rows is required. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook on which the number of rows is required. The default empty text value indicates the currently active workbook on the specified instance." expr="[workbookName2]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet of interest; it will be checked for existence" expr="[book2Sheet]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Worksheet Exists" narrative="Indicates whether or not the named worksheet exists" stage="sheetExistsBool" />
+    </outputs>
+    <onsuccess>ca1b826f-6f83-432a-8fe8-96511003066a</onsuccess>
+    <resource object="MS Excel VBO" action="Worksheet Exists" />
+  </stage>
+  <stage stageid="05c2a829-4108-4175-832b-022bc9d7a4b8" name="If Exists1.1" type="Decision">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="0" y="-75" />
+    <decision expression="[sheetExistsBool] = True" />
+    <ontrue>fdb68c8c-87ab-403a-a53e-ddc4d0c7b2ea</ontrue>
+    <onfalse>90ae60c8-3e90-4a92-9188-e7d23c3d15d3</onfalse>
+  </stage>
+  <stage stageid="ca1b826f-6f83-432a-8fe8-96511003066a" name="If Exists2.1" type="Decision">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="0" y="15" />
+    <decision expression="[sheetExistsBool] = True" />
+    <ontrue>7adf64ea-2a7d-45eb-a879-e56ac1f1f754</ontrue>
+    <onfalse>407c80b1-3f61-4617-9b1b-ec85fd2bf46e</onfalse>
+  </stage>
+  <stage stageid="a28fb21b-d66c-4399-bf11-26bc626cd836" name="ConfirmExists" type="Calculation">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-165" y="30" />
+    <onsuccess>abc3ce99-e794-4d7d-a477-5635d749e54d</onsuccess>
+    <calculation expression="&quot;Go Ahead...&quot;" stage="status" />
+  </stage>
+  <stage stageid="7adf64ea-2a7d-45eb-a879-e56ac1f1f754" name="ConfirmExists" type="Calculation">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="0" y="60" />
+    <onsuccess>4a517ba4-8316-4c77-86be-d8f1d89fab38</onsuccess>
+    <calculation expression="&quot;Go Ahead...&quot;" stage="status" />
+  </stage>
+  <stage stageid="90ae60c8-3e90-4a92-9188-e7d23c3d15d3" name="ErrorMessage1.1" type="Calculation">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="105" y="-75" w="90" h="30" />
+    <onsuccess>52c8f075-4282-40a0-b730-b3f3ac4645ac</onsuccess>
+    <calculation expression="[book1Sheet] &amp; &quot;does not exist.&quot;" stage="status" />
+  </stage>
+  <stage stageid="407c80b1-3f61-4617-9b1b-ec85fd2bf46e" name="ErrorMessage2.1" type="Calculation">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="105" y="15" w="90" h="30" />
+    <onsuccess>7a753a92-b35a-4546-8b45-ec09d7d3d0ce</onsuccess>
+    <calculation expression="[book2Sheet] &amp; &quot;does not exist.&quot;&#xA;" stage="status" />
+  </stage>
+  <stage stageid="52c8f075-4282-40a0-b730-b3f3ac4645ac" name="Anchor9" type="Anchor">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="180" y="-75" w="10" h="10" />
+    <onsuccess>7a753a92-b35a-4546-8b45-ec09d7d3d0ce</onsuccess>
+  </stage>
+  <stage stageid="7a753a92-b35a-4546-8b45-ec09d7d3d0ce" name="Anchor10" type="Anchor">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="180" y="15" w="10" h="10" />
+    <onsuccess>c397e21c-7b3e-4652-9e7b-0649801de8ac</onsuccess>
+  </stage>
+  <stage stageid="c397e21c-7b3e-4652-9e7b-0649801de8ac" name="Anchor11" type="Anchor">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="180" y="120" w="10" h="10" />
+    <onsuccess>4a517ba4-8316-4c77-86be-d8f1d89fab38</onsuccess>
+  </stage>
+  <stage stageid="edeea7f9-9eb7-4071-9bb6-6a3a6ec49c61" name="InternalParams" type="Block">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="-255" y="0" w="120" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="b926f749-a060-44c3-8360-ca045eef8565" name="Anchor12" type="Anchor">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="180" y="-270" w="10" h="10" />
+    <onsuccess>c9308d5b-fcc9-4f71-89aa-1dfe1459ea89</onsuccess>
+  </stage>
+  <stage stageid="c9308d5b-fcc9-4f71-89aa-1dfe1459ea89" name="Anchor13" type="Anchor">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="180" y="90" w="10" h="10" />
+    <onsuccess>bcd7802f-8bd6-4c84-9119-81b297714da6</onsuccess>
+  </stage>
+  <stage stageid="41167096-b173-4e4c-818f-ff2fe4a94d0d" name="Check Status for Files" type="Decision">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-135" y="-255" />
+    <decision expression="[status] = &quot;Go Ahead...&quot;" />
+    <ontrue>b92f38fa-2c8e-45d4-a992-c6cfa6e6443d</ontrue>
+    <onfalse>d14a53a7-da23-441d-99b6-342c09c78b15</onfalse>
+  </stage>
+  <stage stageid="d14a53a7-da23-441d-99b6-342c09c78b15" name="Anchor14" type="Anchor">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-90" y="-270" w="10" h="10" />
+    <onsuccess>b926f749-a060-44c3-8360-ca045eef8565</onsuccess>
+  </stage>
+  <stage stageid="78e6b1df-77d0-47e7-b4b7-b9f3f9415af5" name="If FileExists for Workbook3" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-75" y="-105" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The name of the file to check" expr="[filePath3]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Exists" narrative="True if the file exists" stage="workbook3Exists" />
+    </outputs>
+    <onsuccess>a250a360-281b-49c5-8694-c377bfeca9be</onsuccess>
+    <resource object="Utility - File Management" action="File Exists" />
+  </stage>
+  <stage stageid="427fc7f0-8646-4c05-a3ec-5c485a11acc5" name="workbook3Exists" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-420" y="60" w="90" h="30" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a250a360-281b-49c5-8694-c377bfeca9be" name="If File3 Exists" type="Decision">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <decision expression="[workbook3Exists] = True" />
+    <ontrue>77079226-2a1b-4895-8907-1fa6d81a6f5a</ontrue>
+    <onfalse>6f9f9671-181e-499f-b94c-4ec3e52de5b8</onfalse>
+  </stage>
+  <stage stageid="77079226-2a1b-4895-8907-1fa6d81a6f5a" name="Open Workbook3" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="90" y="-60" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required workbook should be opened. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="File name" narrative="The path and name of the file which should be opened." expr="[filePath3]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name used by Excel to identify the workbook - usually this is the file name (without the path)." stage="workbookName3" />
+    </outputs>
+    <onsuccess>1056e6a7-a42d-4043-92c2-e604cd228bf2</onsuccess>
+    <resource object="MS Excel VBO" action="Open Workbook" />
+  </stage>
+  <stage stageid="1056e6a7-a42d-4043-92c2-e604cd228bf2" name="If SheetExists for Workbook3" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="15" y="0" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the number of rows is required. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook on which the number of rows is required. The default empty text value indicates the currently active workbook on the specified instance." expr="[workbookName3]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet of interest; it will be checked for existence" expr="[book3Sheet]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Worksheet Exists" narrative="Indicates whether or not the named worksheet exists" stage="sheet3Exists" />
+    </outputs>
+    <onsuccess>9c00c705-0384-4b34-b226-7e2efd1c18ac</onsuccess>
+    <resource object="MS Excel VBO" action="Worksheet Exists" />
+  </stage>
+  <stage stageid="9c00c705-0384-4b34-b226-7e2efd1c18ac" name="If Sheet3 Exists" type="Decision">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-75" y="0" />
+    <decision expression="[sheet3Exists] = True" />
+    <ontrue>29805005-f63c-4b31-a8ad-6c9c1b3af11b</ontrue>
+    <onfalse>6664bfd7-c999-4d37-a09e-2afa438ca0d6</onfalse>
+  </stage>
+  <stage stageid="db85c027-0dbd-427c-ba31-2f42f688abd1" name="sheet3Exists" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-420" y="105" w="90" h="30" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6664bfd7-c999-4d37-a09e-2afa438ca0d6" name="Create Worksheet3" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-135" y="45" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the worksheet should be created. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook in which the sheet should be created - The default empty value indicates the currently active workbook on the specified instance." expr="[workbookName3]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the sheet which should be activated. The default empty text value indicates that the currently active sheet should be, er, activated, making this a no-op." expr="[book3Sheet]" />
+    </inputs>
+    <onsuccess>4a414b1e-3a59-4f1a-9861-8d656251988e</onsuccess>
+    <resource object="MS Excel VBO" action="Create Worksheet" />
+  </stage>
+  <stage stageid="29805005-f63c-4b31-a8ad-6c9c1b3af11b" name="Anchor15" type="Anchor">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-135" y="-30" w="10" h="10" />
+    <onsuccess>4a414b1e-3a59-4f1a-9861-8d656251988e</onsuccess>
+  </stage>
+  <stage stageid="a2b96b6c-9741-47c3-8a36-2f17a25efab4" name="Process Ends Confirmation" type="Calculation">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-300" y="90" />
+    <onsuccess>d267091f-05b2-45e6-901f-cca761a7e0bc</onsuccess>
+    <calculation expression="&quot;Successfully done.&quot;" stage="status" />
+  </stage>
+  <stage stageid="d267091f-05b2-45e6-901f-cca761a7e0bc" name="Close Instance" type="Action">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-210" y="90" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance to be closed. Zero indicates the currently active instance." expr="[handle]" />
+      <input type="flag" name="Save Changes" narrative="True to save the changes to the open workbooks on the instance, False to discard any changes. Default is False." expr="True" />
+    </inputs>
+    <onsuccess>bdb14e99-e1c6-4105-95b3-67793b1289d9</onsuccess>
+    <resource object="MS Excel VBO" action="Close Instance" />
+  </stage>
+  <stage stageid="5b7e6c7b-6e4b-4983-b861-aada830d808f" name="Recover1" type="Recover">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-300" y="150" />
+    <onsuccess>f7ef9212-9ae6-42dd-b062-f23842fd2654</onsuccess>
+  </stage>
+  <stage stageid="9f552c67-6d5c-4b46-8f9e-304800ba844f" name="Resume1" type="Resume">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-15" y="150" />
+    <onsuccess>bcd7802f-8bd6-4c84-9119-81b297714da6</onsuccess>
+  </stage>
+  <stage stageid="f7ef9212-9ae6-42dd-b062-f23842fd2654" name="errorMsg" type="Calculation">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-150" y="150" />
+    <onsuccess>9f552c67-6d5c-4b46-8f9e-304800ba844f</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="7504a5b0-c514-4d0a-a7c6-1461ef26e438" name="Recover2" type="Recover">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-255" y="-90" />
+    <onsuccess>442cb660-8e51-4b30-bdbd-cfc6a57e05a8</onsuccess>
+  </stage>
+  <stage stageid="1033f3d1-1de3-4e6c-905c-1e34d5565d96" name="Resume2" type="Resume">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-255" y="90" />
+    <onsuccess>abc3ce99-e794-4d7d-a477-5635d749e54d</onsuccess>
+  </stage>
+  <stage stageid="442cb660-8e51-4b30-bdbd-cfc6a57e05a8" name="errorMsg" type="Calculation">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <loginhibit />
+    <display x="-255" y="0" />
+    <onsuccess>1033f3d1-1de3-4e6c-905c-1e34d5565d96</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="fe174e27-4130-4ada-9b3d-e02d99e8434f" name="statusMsg" type="Data">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <display x="-570" y="180" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d7fd2473-d7a5-4c93-85a7-4aa0eaa0c05e" name="Recover3" type="Recover">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="-90" y="-30" />
+    <onsuccess>2cf6e486-fbe8-4498-b9df-7ed3025004fd</onsuccess>
+  </stage>
+  <stage stageid="d7fbb5be-4dc0-4849-b50c-417d2c319632" name="Resume3" type="Resume">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="-90" y="120" />
+    <onsuccess>4a517ba4-8316-4c77-86be-d8f1d89fab38</onsuccess>
+  </stage>
+  <stage stageid="2cf6e486-fbe8-4498-b9df-7ed3025004fd" name="errorMsg" type="Calculation">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <loginhibit />
+    <display x="-90" y="45" />
+    <onsuccess>d7fbb5be-4dc0-4849-b50c-417d2c319632</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="f5627633-b3cf-48df-bfa4-b9a059b7b53c" name="statusMsg" type="Data">
+    <subsheetid>863cbe10-2b22-45e6-bbda-9c2740886be9</subsheetid>
+    <display x="-525" y="45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b199c049-05db-4df2-b027-a0e556067a6d" name="statusMsg" type="Data">
+    <subsheetid>064bf57a-a6af-4293-a767-843b6ae205ab</subsheetid>
+    <display x="-210" y="90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cdac3430-21e6-4a9a-99f6-2f11c17a555c" name="Output" type="Block">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-615" y="135" w="105" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="bdb14e99-e1c6-4105-95b3-67793b1289d9" name="Set status" type="Calculation">
+    <subsheetid>1bb59fd8-55b5-44a2-be7d-326bd867b25b</subsheetid>
+    <loginhibit />
+    <display x="-120" y="90" />
+    <onsuccess>bcd7802f-8bd6-4c84-9119-81b297714da6</onsuccess>
+    <calculation expression="&quot;Completed&quot;" stage="statusMsg" />
+  </stage>
+</process>

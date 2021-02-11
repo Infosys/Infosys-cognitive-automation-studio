@@ -1,0 +1,15 @@
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\bin\Debug\net461\DeleteFile.dll
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\bin\Debug\net461\DeleteFile.pdb
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\bin\Debug\net461\System.Memory.dll
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\bin\Debug\net461\System.Threading.Tasks.Extensions.dll
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\bin\Debug\net461\System.Text.Json.dll
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\bin\Debug\net461\System.Text.Encodings.Web.dll
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\bin\Debug\net461\System.Buffers.dll
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\bin\Debug\net461\System.Numerics.Vectors.dll
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\bin\Debug\net461\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\bin\Debug\net461\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\obj\Debug\DeleteFile.csprojAssemblyReference.cache
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\obj\Debug\DeleteFile.csproj.CoreCompileInputs.cache
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\obj\Debug\DeleteFile.csproj.CopyComplete
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\obj\Debug\DeleteFile.dll
+C:\Users\atul.kumar31\Documents\DotNetBoilerPlate\Bots\DeleteFile\obj\Debug\DeleteFile.pdb

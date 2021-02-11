@@ -1,0 +1,112 @@
+<process name="ExportDataFromNotepadToExcel" version="1.0" bpversion="6.6.0.15260" narrative="This process is used to extract the content from .txt or .csv file, and convert it into .xlsx format. Delimiter is used for .txt file only.&#xD;&#xA;" byrefcollection="true" preferredid="80a23288-a3c7-4d63-b865-6903c8ca516b" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>0</camerax>
+    <cameray>21</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="e194ecfc-3f3c-40ef-acf5-9816da722c6c" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="textFileName" stage="textFileName" />
+      <input type="text" name="excelFileName" stage="excelFileName" />
+      <input type="number" name="startLine" stage="startLine" />
+      <input type="number" name="endLine" stage="endLine" />
+      <input type="text" name="delimiter" stage="delimiter" />
+    </inputs>
+    <onsuccess>68cc9feb-63b0-4eda-8f75-bdf3b38bc3ec</onsuccess>
+  </stage>
+  <stage stageid="bd68da80-8182-43b4-9eea-8361b4884d25" name="End" type="End">
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="status" stage="status" />
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="988f1bd3-b38d-47b7-8127-fde10510f49a" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="68cc9feb-63b0-4eda-8f75-bdf3b38bc3ec" name="OBJExportDataFromNotepadToExcel::ExportDtaFromNoepadToExcel" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="TextFileName" friendlyname="TextFileName" expr="[textFileName]" />
+      <input type="text" name="ExcelFileName" friendlyname="ExcelFileName" expr="[excelFileName]" />
+      <input type="number" name="Start Line" friendlyname="Start Line" expr="[startLine]" />
+      <input type="number" name="End Line" friendlyname="End Line" expr="[endLine]" />
+      <input type="text" name="Delimiter" friendlyname="Delimiter" expr="[delimiter]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Status" friendlyname="Status" stage="status" />
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>bd68da80-8182-43b4-9eea-8361b4884d25</onsuccess>
+    <resource object="OBJExportDataFromNotepadToExcel" action="ExportDtaFromNoepadToExcel" />
+  </stage>
+  <stage stageid="96e1518e-936c-4884-bf80-e8e749af920d" name="textFileName" type="Data">
+    <display x="-375" y="-135" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="bea84945-de75-4aef-8ca9-21c8e4075e2c" name="excelFileName" type="Data">
+    <display x="-375" y="-90" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="997fe8f1-8bb4-464e-9325-74ebf46c7f20" name="status" type="Data">
+    <display x="-375" y="135" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="97b491c1-e365-4a98-b39a-5c31e5c6946f" name="startLine" type="Data">
+    <display x="-375" y="-45" w="90" h="30" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9fa8940c-a8f0-4f7f-8333-929fa688a1d4" name="endLine" type="Data">
+    <display x="-375" y="0" w="90" h="30" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="96e28cda-b9ec-4fb2-ae35-f6a2c53068da" name="OutParams" type="Block">
+    <loginhibit />
+    <display x="-435" y="105" w="120" h="120" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="507e642c-e6fa-4da2-9c1c-a5a7f646284f" name="InParams" type="Block">
+    <loginhibit />
+    <display x="-435" y="-165" w="120" h="240" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="4ef5592c-cd19-475b-a1ee-b03f7282f775" name="delimiter" type="Data">
+    <display x="-375" y="45" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3c6dd456-3b3e-4625-b97f-a89295775de4" name="statusMsg" type="Data">
+    <display x="-375" y="195" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+</process>

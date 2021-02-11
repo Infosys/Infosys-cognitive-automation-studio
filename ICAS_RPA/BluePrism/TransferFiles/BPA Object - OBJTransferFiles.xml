@@ -1,0 +1,362 @@
+<process name="OBJTransferFiles" version="1.0" bpversion="6.6.0.15260" narrative="" byrefcollection="true" type="object" runmode="Exclusive" preferredid="53dead36-bec1-41c2-8a57-7844a0c192b7">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <appdef>
+    <element name="Application Root">
+      <id>b7d2a332-257c-4a04-b306-0538681f5468</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>-105</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="17d3c02f-0734-4ab6-b63a-d41f83a8b2c1" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="18a3026a-60aa-4e1a-b9ed-bffddee14f6a" type="Normal" published="True">
+    <name>TransferFiles</name>
+    <view>
+      <camerax>-186</camerax>
+      <cameray>129</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="4bf28ebe-8af5-44e2-a4be-7738bb3ad671" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>1209d107-3abc-4bc3-bc92-3af29117906c</onsuccess>
+  </stage>
+  <stage stageid="1209d107-3abc-4bc3-bc92-3af29117906c" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="dcd196af-e802-4ff5-ac46-bdb2c331158f" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+    </imports>
+    <language>visualbasic</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="8f7e2353-3485-4d05-b0bc-6cc371dd75c3" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>17d3c02f-0734-4ab6-b63a-d41f83a8b2c1</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="3dbe9842-21f5-460d-8a5a-5e1b74c049ac" name="Start" type="Start">
+    <subsheetid>17d3c02f-0734-4ab6-b63a-d41f83a8b2c1</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>5842055e-fd17-4fdf-94ed-9de6b206ce3e</onsuccess>
+  </stage>
+  <stage stageid="5842055e-fd17-4fdf-94ed-9de6b206ce3e" name="End" type="End">
+    <subsheetid>17d3c02f-0734-4ab6-b63a-d41f83a8b2c1</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="f139109f-5436-4909-a258-53c221e5c817" name="TransferFiles" type="SubSheetInfo">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <display x="-585" y="-75" w="150" h="90" />
+  </stage>
+  <stage stageid="df239052-4216-4ade-be36-cea90ad4ce80" name="Start" type="Start">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="-150" y="-105" />
+    <inputs>
+      <input type="text" name="sourcePath" stage="sourcePath" />
+      <input type="text" name="destinationPath" stage="destinationPath" />
+      <input type="text" name="fileType" stage="fileType" />
+    </inputs>
+    <onsuccess>b5b679fa-bee5-4df8-a4f8-3ae4c8b723a4</onsuccess>
+  </stage>
+  <stage stageid="de6e6e5c-9aca-43eb-96e9-89de9ddcf8e0" name="End" type="End">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="120" y="120" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="13d34d9d-a391-410f-b435-63532011633c" name="Note1" type="Note">
+    <subsheetid>17d3c02f-0734-4ab6-b63a-d41f83a8b2c1</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="ce2416ff-a391-425e-8c4f-a35ef6a7fd3c" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="0b5dbf33-5267-4903-bdf9-da36689d2f45" name="Move File" type="Action">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="-60" y="195" />
+    <inputs>
+      <input type="text" name="File Path" narrative="The full path to the file to move" expr="[valueRead]" />
+      <input type="text" name="Destination Path" narrative="The path to the folder to move the file to" expr="[destinationPath]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="True if successful" stage="success1" />
+      <output type="text" name="Message" narrative="An error message if unsuccessful" stage="message1" />
+    </outputs>
+    <onsuccess>9956d013-ee70-4edc-a680-70a1dde449b4</onsuccess>
+    <resource object="Utility - File Management" action="Move File" />
+  </stage>
+  <stage stageid="b5b679fa-bee5-4df8-a4f8-3ae4c8b723a4" name="Get Files" type="Action">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="-150" y="-45" />
+    <inputs>
+      <input type="text" name="Folder" narrative="The folder in which to look for files" expr="[sourcePath]" />
+      <input type="text" name="Patterns CSV" narrative="The comma seperated list of wildcard patterns" expr="&quot;*&quot;" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="True if successful" stage="success" />
+      <output type="text" name="Message" narrative="A message if unsuccessful" stage="message" />
+      <output type="collection" name="Files" narrative="The collection of files found" stage="files" />
+    </outputs>
+    <onsuccess>a5639e8c-523c-4682-a0ee-f7df0193d26d</onsuccess>
+    <resource object="Utility - File Management" action="Get Files" />
+  </stage>
+  <stage stageid="bf484ab2-e35b-430c-a975-9e96b2d33030" name="success" type="Data">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <display x="-570" y="120" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="514cd650-a1f2-41e5-9d94-bce6fdc2f12f" name="message" type="Data">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <display x="-375" y="75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="03b0b153-d1f3-4000-8f09-af831ec5eb4a" name="valueRead" type="Data">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <display x="-510" y="120" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a4329c84-63fb-4844-9dfd-a04b4d77b7a6" name="count" type="Data">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="-510" y="75" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a5639e8c-523c-4682-a0ee-f7df0193d26d" name="Loop Start1" type="LoopStart">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="-150" y="15" />
+    <onsuccess>8c4aa745-f90d-4cf4-a166-cb350581e6ec</onsuccess>
+    <groupid>dfc3b414-9488-4368-b9da-a3a6845afa1e</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>files</loopdata>
+  </stage>
+  <stage stageid="792e70f8-4d1a-4f50-a37d-b32421e2e624" name="Loop End1" type="LoopEnd">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="30" y="255" />
+    <onsuccess>7c3861d8-16f4-4e13-b3e4-8762c9b0e87e</onsuccess>
+    <groupid>dfc3b414-9488-4368-b9da-a3a6845afa1e</groupid>
+  </stage>
+  <stage stageid="9956d013-ee70-4edc-a680-70a1dde449b4" name="Increment Count" type="Calculation">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="30" y="195" />
+    <onsuccess>792e70f8-4d1a-4f50-a37d-b32421e2e624</onsuccess>
+    <calculation expression="[count]+1" stage="count" />
+  </stage>
+  <stage stageid="bf73acd2-1ce0-454a-ac6f-bc98404e7628" name="message1" type="Data">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <display x="-330" y="120" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f4592a2d-36a9-45c9-8e78-fb48784b11c6" name="success1" type="Data">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <display x="-390" y="120" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8c4aa745-f90d-4cf4-a166-cb350581e6ec" name="Read Collection Field" type="Action">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="-150" y="60" />
+    <inputs>
+      <input type="number" name="Row Index" narrative="The row index within the collection to read from. The index is from 0 to N-1 (where N is the total number of rows in the collection)." expr="[count]" />
+      <input type="collection" name="Collection" narrative="The collection to read." expr="[files]" />
+      <input type="text" name="Field Name" narrative="The field within the collection to read." expr="&quot;Path&quot;" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Value Read" narrative="The value of the requested field as text." stage="valueRead" />
+    </outputs>
+    <onsuccess>545ef718-dd8e-4b23-bc92-aadb15b6a084</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Read Collection Field" />
+  </stage>
+  <stage stageid="5e48d2e0-7731-483f-9491-6d85a23b5a64" name="Output" type="Block">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="-420" y="-45" w="75" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="3ddbf86c-6c54-4668-9ccc-fa1d49285a5d" name="sourcePath" type="Data">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <display x="-420" y="-90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="eb20843f-ab4b-4d2f-aba2-55e2604eae39" name="destinationPath" type="Data">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <display x="-360" y="-90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="140ebfe4-4b0d-4603-b0e2-40c351431223" name="fileType" type="Data">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <display x="-300" y="-90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2573c767-99dd-40ca-be87-a8e284bc7042" name="exists" type="Data">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <display x="-450" y="120" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="caef9ebb-8b65-4e48-84f1-25045e3afb58" name="statusMsg" type="Data">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <display x="-375" y="0" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="545ef718-dd8e-4b23-bc92-aadb15b6a084" name="File Exists" type="Action">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="-150" y="120" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The name of the file to check" expr="[valueRead]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Exists" narrative="True if the file exists" stage="exists" />
+    </outputs>
+    <onsuccess>ce5c111d-0a75-4387-beb1-eb5d503ecd01</onsuccess>
+    <resource object="Utility - File Management" action="File Exists" />
+  </stage>
+  <stage stageid="ce5c111d-0a75-4387-beb1-eb5d503ecd01" name="Whether file exists" type="Decision">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="-60" y="120" />
+    <decision expression="[exists]" />
+    <ontrue>0b5dbf33-5267-4903-bdf9-da36689d2f45</ontrue>
+    <onfalse>918d0a61-45b9-4895-8c6a-f7dc41303a49</onfalse>
+  </stage>
+  <stage stageid="7777e8f0-308c-4722-b2b1-c29c98756a9a" name="Recover" type="Recover">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="210" y="240" />
+    <onsuccess>b7dc4150-1776-4ee9-84fe-7e9d11243073</onsuccess>
+  </stage>
+  <stage stageid="b472296c-62ef-4446-9d42-c84965445c4f" name="Resume1" type="Resume">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="210" y="120" />
+    <onsuccess>de6e6e5c-9aca-43eb-96e9-89de9ddcf8e0</onsuccess>
+  </stage>
+  <stage stageid="b7dc4150-1776-4ee9-84fe-7e9d11243073" name="errorMsg" type="Calculation">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="210" y="180" />
+    <onsuccess>b472296c-62ef-4446-9d42-c84965445c4f</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="880c2eaa-012d-4707-af7f-5472eafc260d" name="files" type="Collection">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <display x="-435" y="75" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7c3861d8-16f4-4e13-b3e4-8762c9b0e87e" name="Set StatusMsg" type="Calculation">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="120" y="255" />
+    <onsuccess>de6e6e5c-9aca-43eb-96e9-89de9ddcf8e0</onsuccess>
+    <calculation expression="&quot;completed&quot;" stage="statusMsg" />
+  </stage>
+  <stage stageid="918d0a61-45b9-4895-8c6a-f7dc41303a49" name="setStatus" type="Calculation">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="30" y="120" />
+    <onsuccess>de6e6e5c-9aca-43eb-96e9-89de9ddcf8e0</onsuccess>
+    <calculation expression="&quot;File does not Exists&quot;" stage="statusMsg" />
+  </stage>
+  <stage stageid="fd44341d-8bf3-4ec6-a4c2-3995e7df4ee6" name="intermediate" type="Block">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="-600" y="45" w="300" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="ab6596e2-8fcb-48c2-8614-5e94d9ce91ca" name="Inputs" type="Block">
+    <subsheetid>18a3026a-60aa-4e1a-b9ed-bffddee14f6a</subsheetid>
+    <loginhibit />
+    <display x="-450" y="-120" w="195" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+</process>

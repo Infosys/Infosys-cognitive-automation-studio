@@ -1,0 +1,219 @@
+<process name="OBJGetLatestFile" version="1.0" bpversion="6.6.0.15260" narrative="" byrefcollection="true" type="object" runmode="Exclusive" preferredid="2638ee24-9118-4008-a430-bda72a45e64f">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <appdef>
+    <element name="Application Root">
+      <id>17e9c535-6998-4d7c-ae51-f0a7fef27916</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>-21</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="8a828198-3950-46fc-b176-f2fc6fbdb6c7" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="b44918b8-62f2-4d22-99e3-702d0f45df3f" type="Normal" published="True">
+    <name>Action 1</name>
+    <view>
+      <camerax>255</camerax>
+      <cameray>92</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="f40df881-598c-44ca-9ac4-0c50187c746d" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>69a930ce-f064-4280-992c-8d67144529f5</onsuccess>
+  </stage>
+  <stage stageid="69a930ce-f064-4280-992c-8d67144529f5" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="d8ab30f7-a090-4652-8b88-4cda67c23535" name="Stage1" type="ProcessInfo">
+    <display x="-225" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.IO</import>
+    </imports>
+    <language>csharp</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="0fdaf0d9-ba72-48d6-adc7-a4a15ccb8a2e" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>8a828198-3950-46fc-b176-f2fc6fbdb6c7</subsheetid>
+    <display x="-240" y="-120" w="150" h="90" />
+  </stage>
+  <stage stageid="4f7f0751-2639-4088-b52e-fde3f95cc3c6" name="Start" type="Start">
+    <subsheetid>8a828198-3950-46fc-b176-f2fc6fbdb6c7</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>25e7815a-034f-4a40-859e-e33dff79bd2e</onsuccess>
+  </stage>
+  <stage stageid="25e7815a-034f-4a40-859e-e33dff79bd2e" name="End" type="End">
+    <subsheetid>8a828198-3950-46fc-b176-f2fc6fbdb6c7</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="a0728d16-a88f-4cad-a138-cd664a0c974e" name="Action 1" type="SubSheetInfo">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <display x="-240" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="4fba575a-a0d2-49dc-aaad-16411e56e0ed" name="Start" type="Start">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="sourcePath" stage="sourcePath" />
+    </inputs>
+    <onsuccess>d77d8486-1686-4501-a86e-c663db6f72f4</onsuccess>
+  </stage>
+  <stage stageid="0018a002-a231-4789-bead-e0d96cb21d36" name="End" type="End">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <loginhibit />
+    <display x="15" y="255" />
+    <outputs>
+      <output type="text" name="latestFile" stage="latestFile" />
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="6d1ba8b9-0a98-4499-a9de-9be32cd35eab" name="Note1" type="Note">
+    <subsheetid>8a828198-3950-46fc-b176-f2fc6fbdb6c7</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-195" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="56fcf82d-3cb0-4563-98f0-83973846c61a" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="150" w="180" h="230" />
+  </stage>
+  <stage stageid="d77d8486-1686-4501-a86e-c663db6f72f4" name="Code2" type="Code">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <loginhibit />
+    <display x="15" y="75" />
+    <inputs>
+      <input type="text" name="targetDirectory" expr="[sourcePath]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="OutputLatestFileName" stage="latestFile" />
+    </outputs>
+    <onsuccess>577aaf55-5441-48a3-bbb3-a604679869ac</onsuccess>
+    <code><![CDATA[DateTime? dtLatestDateTime = null;
+OutputLatestFileName = string.Empty;
+foreach( var eachfile in Directory.EnumerateFiles(targetDirectory))
+{
+		var info= new FileInfo(eachfile);
+		var fileUpadeteTime= File.GetLastWriteTime(eachfile);
+			
+			if(dtLatestDateTime==null)
+			{
+				OutputLatestFileName=info.Name;
+			dtLatestDateTime=fileUpadeteTime;
+			}
+			
+			if(dtLatestDateTime<fileUpadeteTime)
+			{
+				OutputLatestFileName=info.Name;
+			   dtLatestDateTime=fileUpadeteTime;
+			}
+}
+]]></code>
+  </stage>
+  <stage stageid="5aa3846d-a0c3-403f-abea-ff022c3aba86" name="sourcePath" type="Data">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <display x="135" y="-90" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Bot Testing Details\BluePrism\GetLatestFile</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6245b246-53a0-40ba-a5d0-5a51aae6d301" name="latestFile" type="Data">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <display x="330" y="-120" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ced92cb2-1e58-4a98-a965-4433ed7731c8" name="Recover1" type="Recover">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <loginhibit />
+    <display x="390" y="75" />
+    <onsuccess>98c8ce34-9bcc-41dc-b621-5e70a0cc5fa7</onsuccess>
+  </stage>
+  <stage stageid="480d579b-a687-4397-bf32-3cada4a2d717" name="Resume1" type="Resume">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <loginhibit />
+    <display x="390" y="255" />
+    <onsuccess>0018a002-a231-4789-bead-e0d96cb21d36</onsuccess>
+  </stage>
+  <stage stageid="6de8ad6a-4861-47c6-835c-b62c089cf871" name="input" type="Block">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <loginhibit />
+    <display x="90" y="-135" w="90" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="378f85ac-5f20-441a-8e91-4819275bf78c" name="output" type="Block">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <loginhibit />
+    <display x="255" y="-135" w="105" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="98c8ce34-9bcc-41dc-b621-5e70a0cc5fa7" name="Error Msg" type="Calculation">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <loginhibit />
+    <display x="390" y="165" />
+    <onsuccess>480d579b-a687-4397-bf32-3cada4a2d717</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="963dc14e-9ab2-481a-b31b-6be67269cf08" name="statusMsg" type="Data">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <display x="330" y="-60" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="577aaf55-5441-48a3-bbb3-a604679869ac" name="Set Status" type="Calculation">
+    <subsheetid>b44918b8-62f2-4d22-99e3-702d0f45df3f</subsheetid>
+    <loginhibit />
+    <display x="15" y="165" />
+    <onsuccess>0018a002-a231-4789-bead-e0d96cb21d36</onsuccess>
+    <calculation expression="&quot;completed&quot;" stage="statusMsg" />
+  </stage>
+</process>

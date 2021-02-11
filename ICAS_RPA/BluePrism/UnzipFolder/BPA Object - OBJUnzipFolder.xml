@@ -1,0 +1,249 @@
+<process name="OBJUnzipFolder" version="1.0" bpversion="6.6.0.15260" narrative="" byrefcollection="true" type="object" runmode="Exclusive" preferredid="fae197a3-cfc5-4700-a4d4-3c333af46d1f">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <appdef>
+    <element name="Application Root">
+      <id>2f5c633c-4f1a-4ab2-9210-2a2869772462</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="052c77d1-896b-4b4c-b785-0b9f53c131c6" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="9b45e25a-2511-43c8-a891-a48e11aa21c6" type="Normal" published="True">
+    <name>UnzipProcess</name>
+    <view>
+      <camerax>-25</camerax>
+      <cameray>21</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="51ded07a-91f4-40a4-a67f-309ea174e2a7" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>e69d11a3-52b8-4334-8b53-a310c5437296</onsuccess>
+  </stage>
+  <stage stageid="e69d11a3-52b8-4334-8b53-a310c5437296" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="9b184542-fadd-4199-9df1-b19c357a5a61" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+      <reference>System.IO.Compression.dll</reference>
+      <reference>System.IO.Compression.FileSystem.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.IO</import>
+      <import>System.IO.Compression</import>
+    </imports>
+    <language>csharp</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="0b26fd9e-8987-41a8-b721-0c32c92b4246" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>052c77d1-896b-4b4c-b785-0b9f53c131c6</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="08d15409-9f78-43f7-b0cd-8d3608ed0114" name="Start" type="Start">
+    <subsheetid>052c77d1-896b-4b4c-b785-0b9f53c131c6</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>58066e69-a4da-4c4d-bbc4-f7750ab577f4</onsuccess>
+  </stage>
+  <stage stageid="58066e69-a4da-4c4d-bbc4-f7750ab577f4" name="End" type="End">
+    <subsheetid>052c77d1-896b-4b4c-b785-0b9f53c131c6</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="8f5c888b-8aa9-409e-a09c-9302b4ec5bf4" name="UnzipProcess" type="SubSheetInfo">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="a5704291-898e-4070-bce5-bd70a3e72f32" name="Start" type="Start">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="sourceFolder" stage="sourceFolder" />
+      <input type="text" name="destinedFolder" stage="destinedFolder" />
+    </inputs>
+    <onsuccess>64145120-5eee-4e4f-bb75-4c2a7900a13b</onsuccess>
+  </stage>
+  <stage stageid="a7e7cd1a-92c8-4367-ba69-d879b654eef8" name="End" type="End">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="15" y="135" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="5f9dbcbc-c081-4485-9de9-6486e270b7b7" name="Note1" type="Note">
+    <subsheetid>052c77d1-896b-4b4c-b785-0b9f53c131c6</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="0b109910-e255-495c-bfa9-d9c572d7cf5f" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="64145120-5eee-4e4f-bb75-4c2a7900a13b" name="Check for ZipFile Existence" type="Action">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="15" y="-45" w="90" h="30" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The name of the file to check" expr="[sourceFolder]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Exists" narrative="True if the file exists" stage="Exists" />
+    </outputs>
+    <onsuccess>4826a829-b8e0-497a-9342-d5ed01279d28</onsuccess>
+    <resource object="Utility - File Management" action="File Exists" />
+  </stage>
+  <stage stageid="7befb194-0104-4158-abc6-e53cad79aa3c" name="sourceFolder" type="Data">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="-210" y="15" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8a01777d-8e16-4b06-ae9c-41ba10744837" name="destinedFolder" type="Data">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="-210" y="45" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5c628058-b371-476f-9f53-284aa39fd51c" name="Exists" type="Data">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <display x="180" y="-105" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4826a829-b8e0-497a-9342-d5ed01279d28" name="ZipExists" type="Decision">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="15" y="15" />
+    <decision expression="[Exists]" />
+    <ontrue>3b72560e-91e5-4f36-856b-ff88a1a49629</ontrue>
+    <onfalse>18c78875-ba78-475f-87ff-f0c8aeab4d72</onfalse>
+  </stage>
+  <stage stageid="3b72560e-91e5-4f36-856b-ff88a1a49629" name="Code to Unzip Folder" type="Code">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="-45" y="75" />
+    <inputs>
+      <input type="text" name="ZipPath" expr="[sourceFolder]" />
+      <input type="text" name="ExtractPath" expr="[destinedFolder]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Status" stage="statusMsg" />
+    </outputs>
+    <onsuccess>a7e7cd1a-92c8-4367-ba69-d879b654eef8</onsuccess>
+    <code><![CDATA[try
+{
+	ZipFile.ExtractToDirectory(ZipPath, ExtractPath);
+	Status = "Source folder has been unzipped in destined folder.";
+}
+catch(Exception ex)
+{
+	Status = "Unzipping process Failed.";
+}]]></code>
+  </stage>
+  <stage stageid="73a39851-7bca-4d43-a4b8-7d12110207e1" name="statusMsg" type="Data">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <display x="-210" y="165" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0f9b803b-9862-45c2-a243-1569de8dd9fb" name="Inputs" type="Block">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="-300" y="-15" w="180" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="18c78875-ba78-475f-87ff-f0c8aeab4d72" name="Set Status" type="Calculation">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="90" y="75" />
+    <onsuccess>a7e7cd1a-92c8-4367-ba69-d879b654eef8</onsuccess>
+    <calculation expression="&quot;Directory does not exist.&quot;" stage="statusMsg" />
+  </stage>
+  <stage stageid="782243b0-9425-457a-8943-f53a3d480a8c" name="Recover1" type="Recover">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="195" y="-30" />
+    <onsuccess>93fe52bf-21a4-4849-a212-dcbaee8ee89a</onsuccess>
+  </stage>
+  <stage stageid="841ba022-b561-4072-98b2-902eaa17803c" name="Resume1" type="Resume">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="195" y="135" />
+    <onsuccess>a7e7cd1a-92c8-4367-ba69-d879b654eef8</onsuccess>
+  </stage>
+  <stage stageid="93fe52bf-21a4-4849-a212-dcbaee8ee89a" name="Error Msg" type="Calculation">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="195" y="45" />
+    <onsuccess>841ba022-b561-4072-98b2-902eaa17803c</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="59dda09d-efcd-45da-99ac-f540c8a14a2d" name="Outputs" type="Block">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="-270" y="135" w="135" h="45" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="151a0293-a8f7-4299-ac60-21901730b756" name="intermediate" type="Block">
+    <subsheetid>9b45e25a-2511-43c8-a891-a48e11aa21c6</subsheetid>
+    <loginhibit />
+    <display x="135" y="-135" w="105" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+</process>

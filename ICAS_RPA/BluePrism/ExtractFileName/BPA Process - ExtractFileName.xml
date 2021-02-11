@@ -1,0 +1,85 @@
+<process name="ExtractFileName" version="1.0" bpversion="6.6.0.15260" narrative="." byrefcollection="true" preferredid="dc718e3b-c5bb-447f-bbb0-be22744ee0a2" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="fb9feaef-8779-4460-943c-4bb17545970d" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="filePath" stage="filePath" />
+      <input type="text" name="fileExtention" stage="fileExtension" />
+    </inputs>
+    <onsuccess>5fae4581-f00d-4fae-84a3-33b5ba72574b</onsuccess>
+  </stage>
+  <stage stageid="4e2d0681-a219-45d1-a2e7-7e076ea575fd" name="End" type="End">
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="fileName" stage="fileName" />
+      <output type="text" name="statusMsg " stage="statusMsg " />
+    </outputs>
+  </stage>
+  <stage stageid="e9e00161-4bb7-4c18-9c05-7972954e1b47" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="5fae4581-f00d-4fae-84a3-33b5ba72574b" name="OBJExtractFileName" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="filePath" friendlyname="filePath" expr="[filePath]" />
+      <input type="text" name="fileExtension" friendlyname="fileExtension" expr="[fileExtension]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="fileName" friendlyname="fileName" stage="fileName" />
+      <output type="text" name="statusMsg " friendlyname="statusMsg " stage="statusMsg " />
+    </outputs>
+    <onsuccess>4e2d0681-a219-45d1-a2e7-7e076ea575fd</onsuccess>
+    <resource object="OBJExtractFileName" action="Main" />
+  </stage>
+  <stage stageid="1ea42833-f645-47e1-b738-8d6d868d10e5" name="statusMsg " type="Data">
+    <display x="-165" y="75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="79eb6b58-350a-4edc-a133-b6be018a3b7c" name="fileName" type="Data">
+    <display x="-240" y="75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="374e4a95-14c6-4d03-9c09-47dfe9dc4b65" name="Output" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="45" w="165" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="d7b413fa-7cba-4686-a073-312770694a5e" name="Input" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="-30" w="165" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="f1b6e7bc-0bbd-4e05-a05a-e00b820c43b6" name="filePath" type="Data">
+    <display x="-240" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0b3202b5-a30c-4f15-8cf3-29e20114e0c7" name="fileExtension" type="Data">
+    <display x="-165" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+</process>

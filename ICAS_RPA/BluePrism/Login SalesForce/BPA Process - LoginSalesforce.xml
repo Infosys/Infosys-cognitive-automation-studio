@@ -1,0 +1,74 @@
+<process name="LoginSalesforce" version="1.0" bpversion="6.6.0.15260" narrative="Using this Blue Prism bot we can login into the Salesforce web Application .&#xD;&#xA;Web Browser is : Internet Explore" byrefcollection="true" preferredid="62abbc48-2fdc-4570-88b0-da1678d1064d" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="5c076131-8ea5-453e-98b2-70139b04650b" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="userName" stage="userName" />
+      <input type="password" name="password" stage="password" />
+    </inputs>
+    <onsuccess>d842f867-e76b-4225-a9ec-1eb4d2091c15</onsuccess>
+  </stage>
+  <stage stageid="937eec18-e010-410b-8e52-3ceab2341951" name="End" type="End">
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="fe451c4f-a05b-40e8-aea5-d715fc98a428" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="d842f867-e76b-4225-a9ec-1eb4d2091c15" name="OBJLoginSalesforce::Main" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="0" w="90" h="30" />
+    <inputs>
+      <input type="text" name="userName" friendlyname="userName" expr="[userName]" />
+      <input type="password" name="password" friendlyname="password" expr="[password]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>937eec18-e010-410b-8e52-3ceab2341951</onsuccess>
+    <resource object="OBJLoginSalesforce" action="Main" />
+  </stage>
+  <stage stageid="d76095d8-edea-4bed-b172-1c6def89fea8" name="userName" type="Data">
+    <display x="-255" y="0" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3fd52635-a99d-4a2e-9e7e-46a5fe702997" name="password" type="Data">
+    <display x="-255" y="45" w="90" h="30" />
+    <datatype>password</datatype>
+    <initialvalueenc>
+    </initialvalueenc>
+    <alwaysinit />
+  </stage>
+  <stage stageid="550e0895-0fd7-42b5-8393-8c7b982e1bb1" name="Inputs" type="Block">
+    <loginhibit />
+    <display x="-300" y="-30" w="105" h="120" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="095df465-97a6-4bf2-acbe-740719618993" name="statusMsg" type="Data">
+    <display x="-135" y="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1abddc73-feb6-471d-b890-0e45694b5492" name="Output" type="Block">
+    <loginhibit />
+    <display x="-180" y="0" w="90" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+</process>

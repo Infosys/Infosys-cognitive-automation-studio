@@ -1,0 +1,85 @@
+<process name="ConvertWordToPDF" version="1.0" bpversion="6.6.0.15260" narrative="creation" byrefcollection="true" preferredid="95545a0b-f3d6-4d56-a48b-50e4d01b3085" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>145</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="10249540-81fe-430a-bc7b-9d3d67e13931" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="sourcePath" stage="sourcePath" />
+      <input type="text" name="destinationPath" stage="destinationPath" />
+      <input type="text" name="fileType" stage="fileType" />
+    </inputs>
+    <onsuccess>415b91cb-af44-406c-9c0e-4b466d9cacf5</onsuccess>
+  </stage>
+  <stage stageid="72b35ceb-6816-4eaf-b447-f82dc9858751" name="End" type="End">
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="status" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="6aaa3661-51f1-429d-b652-4bb7288cb6b0" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="415b91cb-af44-406c-9c0e-4b466d9cacf5" name="ConvertWordToPDF" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="sourcePath" friendlyname="sourcePath" expr="[sourcePath]" />
+      <input type="text" name="destinationPath" friendlyname="destinationPath" expr="[destinationPath]" />
+      <input type="text" name="fileType" friendlyname="fileType" expr="[fileType]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="status" friendlyname="status" stage="statusMsg" />
+    </outputs>
+    <onsuccess>72b35ceb-6816-4eaf-b447-f82dc9858751</onsuccess>
+    <resource object="OBJConvertWordToPDF" action="WordToPdfConverter" />
+  </stage>
+  <stage stageid="9dcd8a7b-139a-418a-8602-9a951c2f690b" name="sourcePath" type="Data">
+    <display x="225" y="-105" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9bde5bec-c724-4e83-aff8-695b73fe1bf2" name="statusMsg" type="Data">
+    <display x="225" y="90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ee8a022c-87e0-4619-852c-aaebe18acc66" name="Input Parameters" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="195" y="-150" w="315" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="9d704b19-b7f4-4e33-ac42-f986214a6b27" name="Output Parameters" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="180" y="45" w="90" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="483f8eb8-2c43-4170-8050-aa76957916aa" name="destinationPath" type="Data">
+    <display x="300" y="-105" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f42309b2-79b3-4e45-a64a-b4f41ac1629b" name="fileType" type="Data">
+    <display x="375" y="-105" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+</process>

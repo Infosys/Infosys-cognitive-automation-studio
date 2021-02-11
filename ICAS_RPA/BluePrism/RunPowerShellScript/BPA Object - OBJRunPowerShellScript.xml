@@ -1,0 +1,427 @@
+<process name="OBJRunPowerShellScript" version="1.0" bpversion="6.6.0.15260" narrative="" byrefcollection="true" type="object" runmode="Exclusive" preferredid="a86b8aaa-99af-4459-865d-c06af8e8dbec">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <appdef>
+    <element name="NewTest">
+      <id>19e82797-9235-4ee4-a535-4549460c5bb8</id>
+      <element name="EnterTheText">
+        <id>a1529baf-6862-4745-92f7-022a476e16d6</id>
+        <type>Window</type>
+        <basetype>Window</basetype>
+        <datatype>text</datatype>
+        <diagnose>False</diagnose>
+        <attributes>
+          <attribute name="WindowText" comparisontype="RegEx" inuse="True">
+            <ProcessValue datatype="text" value=".* Windows PowerShell" />
+          </attribute>
+          <attribute name="ClassName" inuse="True">
+            <ProcessValue datatype="text" value="ConsoleWindowClass" />
+          </attribute>
+          <attribute name="CtrlID">
+            <ProcessValue datatype="number" value="0" />
+          </attribute>
+          <attribute name="X">
+            <ProcessValue datatype="number" value="278" />
+          </attribute>
+          <attribute name="Y">
+            <ProcessValue datatype="number" value="72" />
+          </attribute>
+          <attribute name="Width">
+            <ProcessValue datatype="number" value="878" />
+          </attribute>
+          <attribute name="Height">
+            <ProcessValue datatype="number" value="644" />
+          </attribute>
+          <attribute name="Visible" inuse="True">
+            <ProcessValue datatype="flag" value="True" />
+          </attribute>
+          <attribute name="ScreenVisible" inuse="True">
+            <ProcessValue datatype="flag" value="True" />
+          </attribute>
+          <attribute name="Enabled" inuse="True">
+            <ProcessValue datatype="flag" value="True" />
+          </attribute>
+          <attribute name="Active">
+            <ProcessValue datatype="flag" value="True" />
+          </attribute>
+          <attribute name="Ordinal">
+            <ProcessValue datatype="number" value="1" />
+          </attribute>
+          <attribute name="ChildCount">
+            <ProcessValue datatype="number" value="0" />
+          </attribute>
+          <attribute name="AncestorsText">
+            <ProcessValue datatype="text" value="&lt;UNKNOWN&gt; " />
+          </attribute>
+          <attribute name="AncestorCount">
+            <ProcessValue datatype="number" value="1" />
+          </attribute>
+          <attribute name="TypeName">
+            <ProcessValue datatype="text" value="ConsoleWindowClass" />
+          </attribute>
+          <attribute name="ScreenBounds">
+            <ProcessValue datatype="text" value="RECT:288,105,705,1128" />
+          </attribute>
+          <attribute name="Style">
+            <ProcessValue datatype="number" value="351207424" />
+          </attribute>
+          <attribute name="MatchIndex">
+            <ProcessValue datatype="number" value="1" />
+          </attribute>
+          <attribute name="MatchReverse">
+            <ProcessValue datatype="flag" value="True" />
+          </attribute>
+        </attributes>
+      </element>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+    <apptypeinfo>
+      <id>Win32Launch</id>
+      <parameters>
+        <parameter>
+          <name>Path</name>
+          <value>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</value>
+        </parameter>
+        <parameter>
+          <name>CommandLineParams</name>
+          <value>Windows PowerShell</value>
+        </parameter>
+        <parameter>
+          <name>WorkingDirectory</name>
+          <value>
+          </value>
+        </parameter>
+        <parameter>
+          <name>NonInvasive</name>
+          <value>True</value>
+        </parameter>
+        <parameter>
+          <name>ProcessMode</name>
+          <value>Internal</value>
+        </parameter>
+        <parameter>
+          <name>ExternalProcessTimeout</name>
+          <value>0</value>
+        </parameter>
+        <parameter>
+          <name>Options</name>
+          <value>
+          </value>
+        </parameter>
+      </parameters>
+    </apptypeinfo>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="77778f1a-d7a8-4e5a-ab0f-1b984dea3032" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="b048f40d-b4c1-422d-92ad-df6e54cfd4d5" type="Normal" published="True">
+    <name>PowerShell</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>21</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="e09cd691-45bb-473e-bf32-380bdf172118" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>4eb0c9f9-24ad-4b79-8bf4-390f625a76c3</onsuccess>
+  </stage>
+  <stage stageid="4eb0c9f9-24ad-4b79-8bf4-390f625a76c3" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="8ea9ebf6-beb4-4818-b77d-0689cd4d1d3e" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+    </imports>
+    <language>visualbasic</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="bae05303-2fd8-4766-a977-29e5a4b248e6" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>77778f1a-d7a8-4e5a-ab0f-1b984dea3032</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="d250b696-9e4a-47bd-8f32-3a605283a366" name="Start" type="Start">
+    <subsheetid>77778f1a-d7a8-4e5a-ab0f-1b984dea3032</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>11f1b48a-c1c5-4030-9b2c-d345219ea76b</onsuccess>
+  </stage>
+  <stage stageid="11f1b48a-c1c5-4030-9b2c-d345219ea76b" name="End" type="End">
+    <subsheetid>77778f1a-d7a8-4e5a-ab0f-1b984dea3032</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="9b1dac66-4aa7-47ca-8146-4a6d18d8bb04" name="Note1" type="Note">
+    <subsheetid>77778f1a-d7a8-4e5a-ab0f-1b984dea3032</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="551ec257-d486-4292-a3fb-53b6dbe66178" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="7199dd0a-c01a-4806-81ad-e3b525ea7686" name="PowerShell" type="SubSheetInfo">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <display x="-360" y="-120" w="150" h="90" />
+  </stage>
+  <stage stageid="04ae2b6a-0943-4335-83b2-ff0f0f50fde4" name="Start" type="Start">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="-165" y="-135" />
+    <inputs>
+      <input type="text" name="scriptPath" stage="scriptPath" />
+    </inputs>
+    <onsuccess>eb112dc9-f8a6-4e83-a477-aacd7151638c</onsuccess>
+  </stage>
+  <stage stageid="6fb0fc35-2cc1-4b30-9e01-6a60e8ffdcb0" name="End" type="End">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="-165" y="135" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="eb112dc9-f8a6-4e83-a477-aacd7151638c" name="StartProcess" type="Action">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="-165" y="-75" />
+    <inputs>
+      <input type="text" name="Application" narrative="The application or short cut to start" expr="&quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&quot;" />
+      <input type="text" name="Arguments" narrative="Any arguments needed for the app" expr="" />
+    </inputs>
+    <onsuccess>44456b82-8180-4440-9c1a-bc8162e7fa99</onsuccess>
+    <resource object="Utility - Environment" action="Start Process" />
+  </stage>
+  <stage stageid="418c9c4b-95f2-4760-943f-b3dc079e384a" name="ProcessName" type="Navigate" interval="5">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="-165" y="-30" />
+    <onsuccess>766a3da2-a246-41fb-95b6-83e7ce64a344</onsuccess>
+    <step>
+      <element id="19e82797-9235-4ee4-a535-4549460c5bb8" />
+      <action>
+        <id>AttachApplication</id>
+        <arguments>
+          <argument>
+            <id>WindowTitlesCollection</id>
+            <value>
+            </value>
+          </argument>
+          <argument>
+            <id>WindowTitle</id>
+            <value>
+            </value>
+          </argument>
+          <argument>
+            <id>ProcessName</id>
+            <value>"powershell"</value>
+          </argument>
+          <argument>
+            <id>ProcessID</id>
+            <value>
+            </value>
+          </argument>
+          <argument>
+            <id>Username</id>
+            <value>
+            </value>
+          </argument>
+          <argument>
+            <id>ChildIndex</id>
+            <value>
+            </value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
+    <step>
+      <element id="19e82797-9235-4ee4-a535-4549460c5bb8" />
+      <action>
+        <id>SendKeys</id>
+        <arguments>
+          <argument>
+            <id>newtext</id>
+            <value>"cd\"</value>
+          </argument>
+          <argument>
+            <id>interval</id>
+            <value>
+            </value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
+    <step>
+      <element id="19e82797-9235-4ee4-a535-4549460c5bb8" />
+      <action>
+        <id>SendKeys</id>
+        <arguments>
+          <argument>
+            <id>newtext</id>
+            <value>"{ENTER}"</value>
+          </argument>
+          <argument>
+            <id>interval</id>
+            <value>
+            </value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
+  </stage>
+  <stage stageid="98ccefa4-6bde-47b0-8f31-b736cf5f954e" name="Time Out1" type="WaitEnd">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="-240" y="90" w="30" h="30" />
+    <onsuccess>2560bfa1-39d3-46e8-8bea-a2ad91c0f8ca</onsuccess>
+    <groupid>c4a196b6-b84e-437a-b961-c291b75d9b9b</groupid>
+  </stage>
+  <stage stageid="766a3da2-a246-41fb-95b6-83e7ce64a344" name="Wait1" type="WaitStart">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="-240" y="0" w="30" h="30" />
+    <groupid>c4a196b6-b84e-437a-b961-c291b75d9b9b</groupid>
+    <choices />
+    <timeout>5</timeout>
+  </stage>
+  <stage stageid="2560bfa1-39d3-46e8-8bea-a2ad91c0f8ca" name="RunPS" type="Navigate" interval="5">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="-165" y="30" />
+    <onsuccess>ef4b443a-aa4a-428a-be9f-5d28978ada4c</onsuccess>
+    <step>
+      <element id="19e82797-9235-4ee4-a535-4549460c5bb8" />
+      <action>
+        <id>SendKeys</id>
+        <arguments>
+          <argument>
+            <id>newtext</id>
+            <value>[scriptPath]</value>
+          </argument>
+          <argument>
+            <id>interval</id>
+            <value>
+            </value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
+    <step>
+      <element id="19e82797-9235-4ee4-a535-4549460c5bb8" />
+      <action>
+        <id>SendKeyEvents</id>
+        <arguments>
+          <argument>
+            <id>newtext</id>
+            <value>"{ENTER}"</value>
+          </argument>
+          <argument>
+            <id>interval</id>
+            <value>
+            </value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
+  </stage>
+  <stage stageid="32273b9a-9b1a-43c5-b72d-0538bfe4eb2a" name="statusMsg" type="Data">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <display x="270" y="120" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9eeef04f-e8ef-43e1-98f6-d03a2f117b6a" name="Recover1" type="Recover">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="30" y="-60" />
+    <onsuccess>db525d4a-abf7-4711-b781-6dd5538a1ee9</onsuccess>
+  </stage>
+  <stage stageid="f5641f7e-ea8c-433b-9e21-5e1924ee6d13" name="Resume1" type="Resume">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="30" y="90" />
+    <onsuccess>6fb0fc35-2cc1-4b30-9e01-6a60e8ffdcb0</onsuccess>
+  </stage>
+  <stage stageid="db525d4a-abf7-4711-b781-6dd5538a1ee9" name="Error msg" type="Calculation">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="30" y="15" />
+    <onsuccess>f5641f7e-ea8c-433b-9e21-5e1924ee6d13</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="ee3d2f94-8c6a-4c5f-8b52-5d211bf2bb74" name="scriptPath" type="Data">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <display x="-60" y="-120" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">.\GetRes.ps1</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d29fb385-7f54-48e8-9040-4a34b1db3f20" name="Time Out2" type="WaitEnd">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="-300" y="-45" w="30" h="30" />
+    <onsuccess>418c9c4b-95f2-4760-943f-b3dc079e384a</onsuccess>
+    <groupid>cc2e0f60-a6e3-46ba-a033-00f9c9543136</groupid>
+  </stage>
+  <stage stageid="44456b82-8180-4440-9c1a-bc8162e7fa99" name="Wait2" type="WaitStart">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="-240" y="-90" w="30" h="30" />
+    <groupid>cc2e0f60-a6e3-46ba-a033-00f9c9543136</groupid>
+    <choices />
+    <timeout>5</timeout>
+  </stage>
+  <stage stageid="ef4b443a-aa4a-428a-be9f-5d28978ada4c" name="Set Status" type="Calculation">
+    <subsheetid>b048f40d-b4c1-422d-92ad-df6e54cfd4d5</subsheetid>
+    <loginhibit />
+    <display x="-165" y="90" />
+    <onsuccess>6fb0fc35-2cc1-4b30-9e01-6a60e8ffdcb0</onsuccess>
+    <calculation expression="&quot;completed&quot;" stage="statusMsg" />
+  </stage>
+</process>

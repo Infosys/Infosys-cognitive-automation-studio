@@ -1,0 +1,102 @@
+<process name="GetServerStatusByPing" version="1.0" bpversion="6.6.0.15260" narrative="By using this BP bot we can get Server status whether it goes up or down " byrefcollection="true" preferredid="53dc7dde-330c-4836-9fd4-deac9a91cbec" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>0</camerax>
+    <cameray>3</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="5f0462fb-bd4d-41c3-88e6-bfb0a08e17ba" name="Start" type="Start">
+    <display x="60" y="-60" />
+    <inputs>
+      <input type="text" name="location" stage="location" />
+    </inputs>
+    <onsuccess>295d6a52-856e-40e7-afd0-4dfd54438fd2</onsuccess>
+  </stage>
+  <stage stageid="29a7dece-1c87-4e45-9bc9-8a21d1b8f318" name="End" type="End">
+    <display x="60" y="135" />
+    <outputs>
+      <output type="text" name="address" stage="address" />
+      <output type="text" name="pingException" stage="pingException" />
+      <output type="flag" name="pingSuccess" stage="pingSuccess" />
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="8387b995-2e5f-4411-83af-65774bdf0e49" name="Stage1" type="ProcessInfo">
+    <display x="-255" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="295d6a52-856e-40e7-afd0-4dfd54438fd2" name="ObjGetServerStatusByPing" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="60" y="30" />
+    <inputs>
+      <input type="text" name="location" friendlyname="location" narrative="ipAddress" expr="[location]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="pingSuccess" friendlyname="pingSuccess" stage="pingSuccess" />
+      <output type="text" name="address" friendlyname="address" stage="address" />
+      <output type="number" name="roundTripTime (Milliseconds)" friendlyname="roundTripTime (Milliseconds)" stage="roundTripTime (Milliseconds)" />
+      <output type="text" name="pingException" friendlyname="pingException" stage="pingException" />
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>29a7dece-1c87-4e45-9bc9-8a21d1b8f318</onsuccess>
+    <resource object="OBJGetServerStatusByPing" action="Ping" />
+  </stage>
+  <stage stageid="e95d1dd8-ee80-462e-b75f-c5c680342d61" name="location" type="Data">
+    <display x="-120" y="-120" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="399fd89c-a354-44e3-87d5-235c268bbe2d" name="Output" type="Block">
+    <loginhibit />
+    <display x="-330" y="-45" w="210" h="255" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="c3a67dc6-5186-4b76-b71c-7fb0a2c612fc" name="statusMsg" type="Data">
+    <display x="-225" y="180" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e94d178a-da02-427d-aa52-69c2e21d353d" name="pingSuccess" type="Data">
+    <display x="-225" y="45" w="150" h="30" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d6e93cb7-2f14-47b3-8df7-9f0c11fad820" name="address" type="Data">
+    <display x="-225" y="0" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="46a1e167-13e0-4b18-83d7-2f5313313215" name="roundTripTime (Milliseconds)" type="Data">
+    <display x="-225" y="135" w="150" h="30" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d9842e94-6600-4ffa-8938-685916bc0fb6" name="pingException" type="Data">
+    <display x="-225" y="90" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ec9fd7dc-b6bf-4368-a6a2-b69949eaf980" name="Block1" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-165" y="-150" w="90" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+</process>

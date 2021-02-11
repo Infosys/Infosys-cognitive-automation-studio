@@ -1,0 +1,258 @@
+<process name="OBJSearchKeyWordWithinFolder" version="1.0" bpversion="6.6.0.15260" narrative="Process will return names of all the folder(s) or file(s) within a parent folder, containing specified keyword." byrefcollection="true" type="object" runmode="Background" preferredid="924abd82-9c3a-4952-96cc-57bfdeb9b7bb">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <appdef>
+    <element name="Application Root">
+      <id>335623ce-13d9-43fe-9410-c62872f59460</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="e4cdfb2f-0391-48ed-9a98-796034ef2664" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="25b70dc9-c02e-46df-8b93-9f25de8f83de" type="Normal" published="True">
+    <name>Main</name>
+    <view>
+      <camerax>15</camerax>
+      <cameray>-50</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="1a3be5ad-1a55-4a3a-a3f4-6d98561d84b3" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>a18ea0b4-6459-46a9-81ee-5dd76849a6e4</onsuccess>
+  </stage>
+  <stage stageid="a18ea0b4-6459-46a9-81ee-5dd76849a6e4" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="b650102d-3096-4079-a9c1-00cd22c56039" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.Collections.Generic</import>
+      <import>System.IO</import>
+    </imports>
+    <language>csharp</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[public static class AddFiles
+{
+	public static void AddFileNamesToList(string sourceDir, List<string> allFiles)
+	{
+		string[] fileEntries = Directory.GetFiles(sourceDir);
+		foreach (string fileName in fileEntries)
+		{
+			allFiles.Add(fileName);
+		}
+
+		string[] subdirectoryEntries = Directory.GetDirectories(sourceDir);
+		foreach (string item in subdirectoryEntries)
+		{
+			if ((File.GetAttributes(item) & FileAttributes.ReparsePoint) != FileAttributes.ReparsePoint)
+			{
+				AddFileNamesToList(item, allFiles);
+			}
+		}
+	}
+}]]></code>
+  </stage>
+  <stage stageid="b0b83bdd-c567-43f9-a425-476f682fd196" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>e4cdfb2f-0391-48ed-9a98-796034ef2664</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="0631c1ed-4928-4d04-9717-16d57a1cd8a3" name="Start" type="Start">
+    <subsheetid>e4cdfb2f-0391-48ed-9a98-796034ef2664</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>7ab68e7e-fd77-49c9-a1d2-9fd1f62b7904</onsuccess>
+  </stage>
+  <stage stageid="7ab68e7e-fd77-49c9-a1d2-9fd1f62b7904" name="End" type="End">
+    <subsheetid>e4cdfb2f-0391-48ed-9a98-796034ef2664</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="fb385f0d-f077-4d61-a0db-e150047d5274" name="Main" type="SubSheetInfo">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="f1840a6b-66d8-44ac-bc46-1174e53780ff" name="Start" type="Start">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <loginhibit />
+    <display x="60" y="-105" />
+    <inputs>
+      <input type="text" name="folderName" stage="folderName" />
+      <input type="text" name="keyword" stage="keyword" />
+    </inputs>
+    <onsuccess>521c5d8d-4d80-4b13-a8b8-a13b65342319</onsuccess>
+  </stage>
+  <stage stageid="30ac97ca-c5d4-4e27-ad81-56eb036cd707" name="Note1" type="Note">
+    <subsheetid>e4cdfb2f-0391-48ed-9a98-796034ef2664</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="c1345c19-71c4-4b45-938d-77d1bf69257a" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="879e4650-118a-4ee2-a5c7-73c14b70a3df" name="folderName" type="Data">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <display x="-240" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="521c5d8d-4d80-4b13-a8b8-a13b65342319" name="Code for FileNames having Keyword" type="Code">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <loginhibit />
+    <display x="60" y="-45" w="180" h="30" />
+    <inputs>
+      <input type="text" name="sourceFolder" expr="[folderName]" />
+      <input type="text" name="keyWord" expr="[keyword]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="stringFiles" stage="stringOfFiles" />
+    </outputs>
+    <onsuccess>65a96d9b-0d91-422e-9e99-02d6b29a8183</onsuccess>
+    <code><![CDATA[try
+{
+	List<string> allFiles = new List<string>();
+	List<string> filesListWithKeyword = new List<string>();
+	
+	AddFiles.AddFileNamesToList(sourceFolder, allFiles);
+	foreach (string fileName in allFiles)
+	{
+		string contents = File.ReadAllText(fileName);
+		if (contents.Contains(keyWord))
+		{
+			filesListWithKeyword.Add(fileName);
+		}	
+	}
+	
+	stringFiles = string.Join( ",", filesListWithKeyword);
+}
+
+catch (Exception ex)
+{
+	throw ex.InnerException;
+}]]></code>
+  </stage>
+  <stage stageid="83dcf0dd-0cd6-49c2-9921-98eb2ace190d" name="keyword" type="Data">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <display x="-240" y="60" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="357f53c8-a82c-4d90-aaca-7b547beadf40" name="End1" type="End">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <loginhibit />
+    <display x="60" y="75" />
+    <outputs>
+      <output type="text" name="stringOfFiles" stage="stringOfFiles" />
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="f9025bad-3fb7-4010-86dd-ce3e5f539800" name="InParams" type="Block">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <loginhibit />
+    <display x="-285" y="-15" w="90" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="e67f645a-e8aa-477b-ae2a-f653c6916f47" name="stringOfFiles" type="Data">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <loginhibit />
+    <display x="-120" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="28d52fe7-13b2-499a-bdc5-d48d2553810d" name="OutParams" type="Block">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <loginhibit />
+    <display x="-165" y="-15" w="90" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="d1416e5c-b141-40e1-8bc9-51fffb1bf3a6" name="Recover1" type="Recover">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <loginhibit />
+    <display x="315" y="-90" />
+    <onsuccess>d1794ad1-1b93-4768-9d60-9d98e76aec91</onsuccess>
+  </stage>
+  <stage stageid="2a7c3233-f2d1-45f5-b87f-f3779e282f76" name="Resume1" type="Resume">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <loginhibit />
+    <display x="330" y="60" />
+    <onsuccess>357f53c8-a82c-4d90-aaca-7b547beadf40</onsuccess>
+  </stage>
+  <stage stageid="d1794ad1-1b93-4768-9d60-9d98e76aec91" name="Error msg" type="Calculation">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <loginhibit />
+    <display x="330" y="-15" />
+    <onsuccess>2a7c3233-f2d1-45f5-b87f-f3779e282f76</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="b36da6eb-a936-44f3-be5c-da91202c667c" name="statusMsg" type="Data">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <display x="30" y="120" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="302dcb65-50e0-4ab2-9069-a763ab794ed8" name="Block1" type="Block">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <loginhibit />
+    <display x="-30" y="105" w="120" h="30" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="65a96d9b-0d91-422e-9e99-02d6b29a8183" name="Set Status" type="Calculation">
+    <subsheetid>25b70dc9-c02e-46df-8b93-9f25de8f83de</subsheetid>
+    <loginhibit />
+    <display x="60" y="30" />
+    <onsuccess>357f53c8-a82c-4d90-aaca-7b547beadf40</onsuccess>
+    <calculation expression="&quot;completed&quot;" stage="statusMsg" />
+  </stage>
+</process>

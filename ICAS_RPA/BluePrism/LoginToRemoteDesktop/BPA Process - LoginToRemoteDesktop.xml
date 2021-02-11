@@ -1,0 +1,86 @@
+<process name="LoginToRemoteDesktop" version="1.0" bpversion="6.6.0.15260" narrative="" byrefcollection="true" preferredid="0c6da01e-27ac-411a-b2e7-1e2c3984a787" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="a8f24ab4-e39d-431c-8b33-40543e4305aa" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="vMName" stage="vMName" />
+      <input type="password" name="password" stage="password" />
+      <input type="text" name="userName" stage="userName" />
+    </inputs>
+    <onsuccess>26d73106-62c5-4e40-8e59-37f50f6f4d09</onsuccess>
+  </stage>
+  <stage stageid="1d42ac24-ae18-40b7-be32-079677046acc" name="End" type="End">
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="21a0a46c-25be-4eb1-ac7d-dc3c4a7b7289" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="26d73106-62c5-4e40-8e59-37f50f6f4d09" name="OBJLoginToRemoteDesktop::Login to VM" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-30" />
+    <inputs>
+      <input type="text" name="vMName" friendlyname="vMName" expr="[vMName]" />
+      <input type="password" name="password" friendlyname="password" expr="[password]" />
+      <input type="text" name="userName" friendlyname="userName" expr="[userName]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>1d42ac24-ae18-40b7-be32-079677046acc</onsuccess>
+    <resource object="OBJLoginToRemoteDesktop" action="Login to VM" />
+  </stage>
+  <stage stageid="84a3a38c-b248-43e5-82ef-da09f1194c38" name="statusMsg" type="Data">
+    <display x="-180" y="60" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3e727e6b-e4a8-4939-9132-123ca16dc81a" name="vMName" type="Data">
+    <display x="345" y="-75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e3280428-8655-40ec-a3ff-3d2875a69778" name="password" type="Data">
+    <display x="330" y="45" />
+    <datatype>password</datatype>
+    <initialvalueenc>
+    </initialvalueenc>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="df832146-bedf-4dd9-b905-ccf8d487ff94" name="userName" type="Data">
+    <display x="345" y="-15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f7192f9b-51b6-4f97-bd4e-08259291df21" name="input" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="285" y="-105" w="120" h="180" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="f69ad3d7-530b-4b8d-925b-78051d0f440c" name="output" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-210" y="30" w="75" h="45" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+</process>

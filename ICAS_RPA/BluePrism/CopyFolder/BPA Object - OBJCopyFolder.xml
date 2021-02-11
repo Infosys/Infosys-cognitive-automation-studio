@@ -1,0 +1,216 @@
+<process name="OBJCopyFolder" version="1.0" bpversion="6.6.0.15260" narrative="" byrefcollection="true" type="object" runmode="Exclusive" preferredid="bbcff47a-66be-4f37-b624-5a512e2285f8">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <appdef>
+    <element name="Application Root">
+      <id>6cd30342-c0df-4ccd-bc3e-526b7452b47a</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="3a0d02d8-318d-4f2f-a922-3fad6c36f53d" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="e515f105-c56d-47e7-b624-491b565dcd6e" type="Normal" published="True">
+    <name>Copy Folder</name>
+    <view>
+      <camerax>-162</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="7447579c-93a9-48a9-87b5-acd72fe5f3bd" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>41578303-53e3-4792-bba7-eadbc05b5fd4</onsuccess>
+  </stage>
+  <stage stageid="41578303-53e3-4792-bba7-eadbc05b5fd4" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="f407b597-d9ff-46dc-97ca-5acac027df5d" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.IO</import>
+    </imports>
+    <language>csharp</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="c7a5bd79-4c87-4e56-9d25-286e878b7a7c" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>3a0d02d8-318d-4f2f-a922-3fad6c36f53d</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="4c2426dc-6f41-4287-b228-e2d882c86c81" name="Start" type="Start">
+    <subsheetid>3a0d02d8-318d-4f2f-a922-3fad6c36f53d</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>542427ba-d458-4164-a409-8eafd4f9827e</onsuccess>
+  </stage>
+  <stage stageid="542427ba-d458-4164-a409-8eafd4f9827e" name="End" type="End">
+    <subsheetid>3a0d02d8-318d-4f2f-a922-3fad6c36f53d</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="f2c115ef-68a8-4e7b-88a4-68d5a94c2490" name="Copy Folder" type="SubSheetInfo">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="71e71c3f-bbb5-444e-87cf-a9fd13040428" name="Start" type="Start">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="sourcePath" stage="sourcePath" />
+      <input type="text" name="destinationPath" stage="destinationPath" />
+    </inputs>
+    <onsuccess>406a05c4-3c5d-4bf8-b06a-6d14f928428c</onsuccess>
+  </stage>
+  <stage stageid="abb12407-295f-4864-9617-57ffe74d92d1" name="End" type="End">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="348e5bbd-d70f-4a91-b78c-bde1cf96c41e" name="Note1" type="Note">
+    <subsheetid>3a0d02d8-318d-4f2f-a922-3fad6c36f53d</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="9ad2683b-89c9-4d81-83f5-b27b420273cb" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="109e1a41-e366-44e3-b600-094f3f115bd1" name="sourcePath" type="Data">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <display x="-315" y="-15" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\bot-factory-master-Microbots-RPA Bots\Microbots\RPA Bots\Blue Prism\CopyFolder</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8dd1a45f-0c21-4818-a823-36b8793b14aa" name="destinationPath" type="Data">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <display x="-330" y="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\bot-factory-master-Microbots-RPA Bots\Microbots\RPA Bots\Blue Prism\CopyFolder\Output</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="406a05c4-3c5d-4bf8-b06a-6d14f928428c" name="Code1" type="Code">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="sourceFolder" expr="[sourcePath]" />
+      <input type="text" name="destFolder" expr="[destinationPath]" />
+    </inputs>
+    <onsuccess>769329be-7fbd-47e5-bcbb-d9bf11c81c0a</onsuccess>
+    <code><![CDATA[string sourcePath = sourceFolder+"/";
+string targetPath = destFolder+"/";
+
+
+ 
+
+  
+
+foreach (var srcPath in Directory.GetFiles(sourcePath))
+{
+       File.Copy(srcPath, srcPath.Replace(sourcePath, targetPath), true);
+	    
+}]]></code>
+  </stage>
+  <stage stageid="4f2d963c-e3f8-4e0a-b172-429742d7cfd7" name="statusMsg" type="Data">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <display x="-195" y="15" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="beb5e529-9786-476f-bc50-c61d7779d18a" name="Block1" type="Block">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <loginhibit />
+    <display x="-390" y="-45" w="120" h="150" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="4afffb3c-09f5-4e70-8866-410a211cf265" name="Block3" type="Block">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <loginhibit />
+    <display x="-240" y="-30" w="90" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="78a30b8f-7651-42f9-9806-6962d5b5823d" name="Block4" type="Block">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <loginhibit />
+    <display x="-30" y="-135" w="90" h="270" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="1eee69db-1474-42bc-8fb4-2b2ea329ae4d" name="Recover1" type="Recover">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <loginhibit />
+    <display x="165" y="-90" />
+    <onsuccess>15a401d6-ca8e-41d6-a68b-967074cb68ac</onsuccess>
+  </stage>
+  <stage stageid="6cd1942a-ffa6-4152-bf64-5742975398f4" name="Resume1" type="Resume">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <loginhibit />
+    <display x="165" y="90" />
+    <onsuccess>abb12407-295f-4864-9617-57ffe74d92d1</onsuccess>
+  </stage>
+  <stage stageid="15a401d6-ca8e-41d6-a68b-967074cb68ac" name="ErrorMsg" type="Calculation">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <loginhibit />
+    <display x="165" y="0" />
+    <onsuccess>6cd1942a-ffa6-4152-bf64-5742975398f4</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="769329be-7fbd-47e5-bcbb-d9bf11c81c0a" name="Set Status" type="Calculation">
+    <subsheetid>e515f105-c56d-47e7-b624-491b565dcd6e</subsheetid>
+    <loginhibit />
+    <display x="15" y="45" />
+    <onsuccess>abb12407-295f-4864-9617-57ffe74d92d1</onsuccess>
+    <calculation expression="&quot;completed&quot;" stage="statusMsg" />
+  </stage>
+</process>

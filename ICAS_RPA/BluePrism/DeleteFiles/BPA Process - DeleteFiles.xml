@@ -1,0 +1,76 @@
+<process name="DeleteFiles" version="1.0" bpversion="6.6.0.15260" narrative="" byrefcollection="true" preferredid="fdbea198-9f8e-4046-8afd-ed14e0522f13" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="35d5044c-1ce5-496e-a309-65e63b9359e0" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="folderPath" stage="folderPath" />
+      <input type="text" name="filePattern" stage="filePattern" />
+    </inputs>
+    <onsuccess>165a702a-6c10-4a7e-b106-3fe3f8cbb999</onsuccess>
+  </stage>
+  <stage stageid="62b90ff9-8829-4aef-850e-273260aacb4d" name="End" type="End">
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="bc2f4ec5-0845-4c12-8a9e-93bc3b432aef" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="165a702a-6c10-4a7e-b106-3fe3f8cbb999" name="DeleteFiles" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="0" />
+    <inputs>
+      <input type="text" name="folderPath" friendlyname="folderPath" expr="[folderPath]" />
+      <input type="text" name="filePattern" friendlyname="filePattern" expr="[filePattern]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>62b90ff9-8829-4aef-850e-273260aacb4d</onsuccess>
+    <resource object="OBJDeleteFiles" action="DeletFile" />
+  </stage>
+  <stage stageid="9fa8a65e-eafa-4a05-b175-296cd1a684a8" name="folderPath" type="Data">
+    <display x="435" y="-75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b84b2f01-b5b8-4818-94f6-5f5a71a8c4eb" name="filePattern" type="Data">
+    <display x="420" y="-30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="045e48bf-efda-4979-966d-e4d4fc62f811" name="statusMsg" type="Data">
+    <display x="450" y="105" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="04f61524-e11f-42a0-99d2-fde419075585" name="input" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="390" y="-90" w="90" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="3797ac47-9e90-4ca1-8b4d-b51bba032e62" name="output" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="420" y="75" w="60" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+</process>

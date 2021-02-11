@@ -1,0 +1,709 @@
+<process name="OBJExportDataFromNotepadToExcel" version="1.0" bpversion="6.6.0.15260" narrative="This process is used to extract the content from .txt or .csv file, and convert it into .xlsx format. Delimiter is used for .txt file only." byrefcollection="true" type="object" runmode="Background" preferredid="aaf13515-e5f7-460c-b981-8b621db95373">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <appdef>
+    <element name="Application Root">
+      <id>effbae44-4286-4119-8e4e-e3ca4437b2fd</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="c3d05882-f60b-48c7-a981-720d0bea430c" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="6ab376ad-591c-4640-81a5-293f2aacf5c5" type="Normal" published="True">
+    <name>ExportDtaFromNoepadToExcel</name>
+    <view>
+      <camerax>88</camerax>
+      <cameray>627</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="d2e99248-014e-4856-82f5-4d696e135c39" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>f700e56b-6427-469e-b40b-9250b443a50a</onsuccess>
+  </stage>
+  <stage stageid="f700e56b-6427-469e-b40b-9250b443a50a" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="fabe1b0d-d262-4f1e-b9cb-67e5fd3c04d1" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.IO</import>
+      <import>System.Collections.Generic</import>
+      <import>Microsoft.VisualBasic</import>
+      <import>Microsoft.VisualBasic.FileIO</import>
+    </imports>
+    <language>visualbasic</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[Public Function ParseCsvToList(ByVal csv As String, ByVal delimiter As String) As List(Of String())
+	Dim result = New List(Of String())()
+
+	Using sr As New StringReader(csv)
+		Using lineParser As New TextFieldParser(sr)
+			lineParser.TextFieldType = FieldType.Delimited
+			lineParser.SetDelimiters(delimiter)
+			While Not lineParser.EndOfData
+
+				Dim fields As String() = lineParser.ReadFields()
+				result.Add(fields)
+			End While
+		End Using
+	End Using
+
+	Return result
+End Function]]></code>
+  </stage>
+  <stage stageid="def61252-397e-4cd9-bfcf-42f02af2fd1e" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>c3d05882-f60b-48c7-a981-720d0bea430c</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="9be30bde-caaf-4ea3-af08-7a04de51849f" name="Start" type="Start">
+    <subsheetid>c3d05882-f60b-48c7-a981-720d0bea430c</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>fd239634-44c4-4fce-9430-481e0f5baeb7</onsuccess>
+  </stage>
+  <stage stageid="fd239634-44c4-4fce-9430-481e0f5baeb7" name="End" type="End">
+    <subsheetid>c3d05882-f60b-48c7-a981-720d0bea430c</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="d5f017ee-53f1-466b-b718-24fd5e369e5c" name="ExportDtaFromNoepadToExcel" type="SubSheetInfo">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="70079c18-5249-437b-a053-2ba709a64a85" name="Start" type="Start">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="TextFileName" stage="textFileName" />
+      <input type="text" name="ExcelFileName" stage="excelFileName" />
+      <input type="number" name="Start Line" stage="startLine" />
+      <input type="number" name="End Line" stage="endLine" />
+      <input type="text" name="Delimiter" stage="delimiter" />
+    </inputs>
+    <onsuccess>098356fb-7163-4694-bd06-00ab4332d08e</onsuccess>
+  </stage>
+  <stage stageid="75e566aa-d3fd-46bf-aacd-12fe7c46b128" name="End" type="End">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="30" y="765" />
+    <outputs>
+      <output type="text" name="Status" stage="status" />
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="e89f2e63-632f-4f5c-9844-326936d6a675" name="Note1" type="Note">
+    <subsheetid>c3d05882-f60b-48c7-a981-720d0bea430c</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="a8a245ba-ee6f-43ed-bdb0-8d7f2dd68252" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="4624219d-c816-4c9c-8a11-626587c4d7ff" name="textFileName" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-345" y="15" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2ca22bd4-ff5f-4734-9c0a-1528085539cd" name="excelFileName" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-345" y="60" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7e792948-47f1-482b-aaae-aea534ab5659" name="status" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-345" y="285" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0e9d30b2-0f8f-4288-b3e6-54b4d934c21f" name="Read Lines From File" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="165" y="255" />
+    <inputs>
+      <input type="text" name="File Path" narrative="The file to read" expr="[textFileName]" />
+      <input type="number" name="Start Line" narrative="The first line to read" expr="[startLine]" />
+      <input type="number" name="End Line" narrative="The last line to read" expr="[endLine]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="True is the read was successful" stage="success" />
+      <output type="text" name="Message" narrative="The exception detail if the read was unsuccessful" stage="message" />
+      <output type="collection" name="Lines" narrative="The lines read - the collection contains a single text column 'Line'" stage="lines" />
+      <output type="number" name="Line Count" narrative="The number of lines read" stage="lineCount" />
+      <output type="flag" name="End of File" narrative="True if the end of the file was reached before the 'End Line' was reached" stage="endOfFile" />
+    </outputs>
+    <onsuccess>2f15d372-78be-4033-81a2-a3e6b4ea525c</onsuccess>
+    <resource object="Utility - File Management" action="Read Lines From File" />
+  </stage>
+  <stage stageid="ad5d4928-ac4e-4a68-abc7-cae5994eacb5" name="startLine" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-345" y="105" w="90" h="30" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8e32f2f0-6f86-45cd-ac27-c0da15a831c7" name="endLine" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-345" y="150" w="90" h="30" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="098356fb-7163-4694-bd06-00ab4332d08e" name="Check for FileExistence" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="15" y="-45" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The name of the file to check" expr="[textFileName]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Exists" narrative="True if the file exists" stage="exists" />
+    </outputs>
+    <onsuccess>593b9e4d-aeba-4420-a694-d54ff75d1f6a</onsuccess>
+    <resource object="Utility - File Management" action="File Exists" />
+  </stage>
+  <stage stageid="8b1dc7aa-54cd-42fe-b8ef-daf97b9a0a87" name="Get FileExtension" type="Calculation">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="15" y="75" />
+    <onsuccess>3a72ec3b-a527-4b18-bc00-18baeeb64523</onsuccess>
+    <calculation expression="Right([textFileName],4)" stage="fileExt" />
+  </stage>
+  <stage stageid="d7edd890-1b43-4714-80b9-1edad35f7b97" name="fileExt" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="60" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c5456874-272b-4e28-8b57-fb3defc8538e" name="exists" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="15" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="593b9e4d-aeba-4420-a694-d54ff75d1f6a" name="If File Exists" type="Decision">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="15" y="15" />
+    <decision expression="[exists] = True" />
+    <ontrue>8b1dc7aa-54cd-42fe-b8ef-daf97b9a0a87</ontrue>
+    <onfalse>8444a3b6-4719-466e-9b51-76adf3198d8f</onfalse>
+  </stage>
+  <stage stageid="8444a3b6-4719-466e-9b51-76adf3198d8f" name="ErrorMessage1" type="Calculation">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="420" y="15" />
+    <onsuccess>a156f896-bd20-4538-9a82-c6e61da5eda8</onsuccess>
+    <calculation expression="&quot;File doesn't exist.&quot;" stage="status" />
+  </stage>
+  <stage stageid="6b157d2c-3d06-4876-a7c6-b4ecc3a15119" name="ErrorMessage2" type="Calculation">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="360" y="255" />
+    <onsuccess>a156f896-bd20-4538-9a82-c6e61da5eda8</onsuccess>
+    <calculation expression="&quot;File should be in .csv or .txt format.&quot;" stage="status" />
+  </stage>
+  <stage stageid="0f7e57c8-d360-4fbd-b0b2-32b1dea470e9" name="Check FileExtension" type="ChoiceStart">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="15" y="195" />
+    <groupid>e66bb93b-4448-4576-9eba-62348b588a12</groupid>
+    <choices>
+      <choice expression="[fileExt] = &quot;.csv&quot;">
+        <name>CSV Files</name>
+        <distance>60</distance>
+        <ontrue>009d8c89-04c3-4715-9408-3cdd2709fded</ontrue>
+      </choice>
+      <choice expression="[fileExt] = &quot;.txt&quot; AND [delimiter] = &quot;&quot;">
+        <name>TXT Files</name>
+        <distance>150</distance>
+        <ontrue>0e9d30b2-0f8f-4288-b3e6-54b4d934c21f</ontrue>
+      </choice>
+      <choice expression="[fileExt] = &quot;.txt&quot; AND [delimiter] &lt;&gt; &quot;&quot;">
+        <name>TXT Files with Delimiter</name>
+        <distance>240</distance>
+        <ontrue>c485708b-ef62-4956-a656-4bcc99cc574a</ontrue>
+      </choice>
+    </choices>
+  </stage>
+  <stage stageid="6cc7722f-6fba-4511-bda6-65790495c79d" name="otherFilFormats" type="ChoiceEnd">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="360" y="195" />
+    <onsuccess>6b157d2c-3d06-4876-a7c6-b4ecc3a15119</onsuccess>
+    <groupid>e66bb93b-4448-4576-9eba-62348b588a12</groupid>
+  </stage>
+  <stage stageid="c60b0d34-6331-4835-883f-ce3d2e1cd4ed" name="Get CSV as Collection" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="75" y="315" />
+    <inputs>
+      <input type="text" name="CSV" narrative="The CSV to be converted into a collection" expr="[text]" />
+      <input type="flag" name="First Row Is Header" narrative="Indicates whether the first row of the CSV file should be treated as headers" expr="False" />
+      <input type="collection" name="Schema" narrative="Optional. A collection of column names. If left blank the column names will be taken from the first row. " expr="[schema]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Output Collection" narrative="The collection converted from CSV" stage="cSVValues" />
+    </outputs>
+    <onsuccess>5cafd55b-8c27-409c-8e3f-40147925ba14</onsuccess>
+    <resource object="Utility - Strings" action="Get CSV As Collection" />
+  </stage>
+  <stage stageid="d153bd97-f8e2-4fa5-ab1c-5a3a30ce85ad" name="cSVValues" type="Collection">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="195" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3a72ec3b-a527-4b18-bc00-18baeeb64523" name="Create Instance" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="15" y="135" />
+    <inputs>
+      <input type="flag" name="Enable Events" narrative="Flag to indicate that events should be enabled / disabled on the attached instance - defaulted to True" expr="True" />
+    </inputs>
+    <outputs>
+      <output type="number" name="handle" narrative="An integer which can be used to identify the created instance in subsequent actions" stage="handle" />
+    </outputs>
+    <onsuccess>0f7e57c8-d360-4fbd-b0b2-32b1dea470e9</onsuccess>
+    <resource object="MS Excel VBO" action="Create Instance" />
+  </stage>
+  <stage stageid="3a420851-72ea-4656-9cd4-4bcceee41aab" name="handle" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="105" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5cafd55b-8c27-409c-8e3f-40147925ba14" name="Create Workbook for CSV" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="75" y="375" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook should be created. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name of the workbook that Excel has created - this can be changed using the &quot;Save Workbook As&quot; action" stage="workbookName" />
+    </outputs>
+    <onsuccess>9469f8c4-0641-4761-8fec-9c4ec98a82f8</onsuccess>
+    <resource object="MS Excel VBO" action="Create Workbook" />
+  </stage>
+  <stage stageid="056ae8c8-4816-447f-8776-ca14ab161d02" name="workbookName" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="555" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a156f896-bd20-4538-9a82-c6e61da5eda8" name="Anchor1" type="Anchor">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="420" y="255" w="10" h="10" />
+    <onsuccess>345e9182-7951-43b7-9267-fae78c5cb2d4</onsuccess>
+  </stage>
+  <stage stageid="345e9182-7951-43b7-9267-fae78c5cb2d4" name="Anchor2" type="Anchor">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="420" y="705" w="10" h="10" />
+    <onsuccess>75e566aa-d3fd-46bf-aacd-12fe7c46b128</onsuccess>
+  </stage>
+  <stage stageid="7ba2770c-557b-4866-9ddd-9f3714876df6" name="success" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="240" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5a98c948-470c-41a1-beed-992e4b4a418b" name="message" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="285" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="93102df1-b9ad-49fa-b056-796283e84c2f" name="lines" type="Collection">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="330" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b5ce3c68-1e56-4ef6-9f4e-796537d3c796" name="lineCount" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="375" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="04ea4812-59fe-48e4-b3b2-cd23c7b44b37" name="endOfFile" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="420" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9469f8c4-0641-4761-8fec-9c4ec98a82f8" name="Write CSV Collection to Excel" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="75" y="435" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the specified collection should be written. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook within which the data should be written. The default empty value indicates the current workbook within the specified instance." expr="[workbookName]" />
+      <input type="collection" name="Collection" narrative="The collection containing the data which should be written to the worksheet." expr="[cSVValues]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet on which the given data should be written. The default empty value indicates the current sheet within the specified workbook." expr="&quot;Sheet1&quot;" />
+      <input type="text" name="Cell Reference" narrative="The reference at which the collection should be written." expr="&quot;A1&quot;" />
+      <input type="flag" name="Include Column Names" narrative="True to indicate that the column names from the collection should be written out as the first row; False to ignore the column names and just write out the data." expr="False" />
+    </inputs>
+    <onsuccess>d46536af-eb32-4c6e-be97-21cd09591a37</onsuccess>
+    <resource object="MS Excel VBO" action="Write Collection" />
+  </stage>
+  <stage stageid="2f15d372-78be-4033-81a2-a3e6b4ea525c" name="Create Workbook for Txt" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="165" y="375" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook should be created. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name of the workbook that Excel has created - this can be changed using the &quot;Save Workbook As&quot; action" stage="workbookName" />
+    </outputs>
+    <onsuccess>37811e10-b9cb-4873-89c9-b0df1dae865f</onsuccess>
+    <resource object="MS Excel VBO" action="Create Workbook" />
+  </stage>
+  <stage stageid="37811e10-b9cb-4873-89c9-b0df1dae865f" name="Write Txt Collection to Excel" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="165" y="435" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the specified collection should be written. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook within which the data should be written. The default empty value indicates the current workbook within the specified instance." expr="[workbookName]" />
+      <input type="collection" name="Collection" narrative="The collection containing the data which should be written to the worksheet." expr="[lines]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet on which the given data should be written. The default empty value indicates the current sheet within the specified workbook." expr="&quot;Sheet1&quot;" />
+      <input type="text" name="Cell Reference" narrative="The reference at which the collection should be written." expr="&quot;A1&quot;" />
+      <input type="flag" name="Include Column Names" narrative="True to indicate that the column names from the collection should be written out as the first row; False to ignore the column names and just write out the data." expr="False" />
+    </inputs>
+    <onsuccess>d46536af-eb32-4c6e-be97-21cd09591a37</onsuccess>
+    <resource object="MS Excel VBO" action="Write Collection" />
+  </stage>
+  <stage stageid="d4894270-fc98-4664-9d91-0251874ac933" name="Save WorkBook" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="165" y="525" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook which should be saved resides. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook which should be saved" expr="[workbookName]" />
+      <input type="text" name="Filename" narrative="The full path and filename to which the workbook should be saved." expr="[excelFileName]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="New Workbook Name" narrative="The new workbook name which Excel will use to identify the workbook within the instance." stage="newWorkbookName" />
+    </outputs>
+    <onsuccess>05f23c0a-63e0-4799-81a0-739b3712e0e6</onsuccess>
+    <resource object="MS Excel VBO" action="Save Workbook As" />
+  </stage>
+  <stage stageid="90e4feaf-be62-4d86-a3fe-4bbfbc00680b" name="newWorkbookName" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="600" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="05f23c0a-63e0-4799-81a0-739b3712e0e6" name="Close WorkBook" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="165" y="585" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook which should be closed resides. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook which should be closed." expr="[newWorkbookName]" />
+      <input type="flag" name="Save Data" narrative="True to save the data before closing the workbook; The default of False will discard any changes before closing the workbook." expr="True" />
+    </inputs>
+    <onsuccess>54b8310d-b292-4087-ae39-9c1a02ed57aa</onsuccess>
+    <resource object="MS Excel VBO" action="Close Workbook" />
+  </stage>
+  <stage stageid="54b8310d-b292-4087-ae39-9c1a02ed57aa" name="Close Instance" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="15" y="585" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance to be closed. Zero indicates the currently active instance." expr="[handle]" />
+      <input type="flag" name="Save Changes" narrative="True to save the changes to the open workbooks on the instance, False to discard any changes. Default is False." expr="True" />
+    </inputs>
+    <onsuccess>5bc474ff-3622-4f94-8ede-355af92f4ddc</onsuccess>
+    <resource object="MS Excel VBO" action="Close Instance" />
+  </stage>
+  <stage stageid="d46536af-eb32-4c6e-be97-21cd09591a37" name="Anchor3" type="Anchor">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="165" y="480" w="10" h="10" />
+    <onsuccess>d4894270-fc98-4664-9d91-0251874ac933</onsuccess>
+  </stage>
+  <stage stageid="5bc474ff-3622-4f94-8ede-355af92f4ddc" name="Success Message" type="Calculation">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="15" y="645" />
+    <onsuccess>711a3d7f-b0b6-4e38-9d1f-f078bdb99bd6</onsuccess>
+    <calculation expression="&quot;Process completed successfully.&quot;" stage="status" />
+  </stage>
+  <stage stageid="b8e5ffc4-44e6-45df-851f-e691b3c6002a" name="OutParams" type="Block">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="-405" y="255" w="120" h="120" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="23ba9133-b3a4-4b1c-9462-815de3d68d5d" name="InParams" type="Block">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="-405" y="-15" w="120" h="240" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="b5970662-058e-4540-9876-7fb91738d1f9" name="Internal" type="Block">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="-225" y="-15" w="90" h="645" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="009d8c89-04c3-4715-9408-3cdd2709fded" name="Read CSV as String" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="75" y="255" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The full path the file to read the text from" expr="[textFileName]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="True if successful" stage="success" />
+      <output type="text" name="Message" narrative="An error message if unsuccessful" stage="message" />
+      <output type="text" name="Text" narrative="The text of the file" stage="text" />
+    </outputs>
+    <onsuccess>c60b0d34-6331-4835-883f-ce3d2e1cd4ed</onsuccess>
+    <resource object="Utility - File Management" action="Read All Text from File" />
+  </stage>
+  <stage stageid="ef738f6b-266f-4f25-b821-591e70ce9bfe" name="text" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="150" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="26c4716a-d7c7-4b9f-9a8b-7acc5423a20e" name="delimiter" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-345" y="195" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c485708b-ef62-4956-a656-4bcc99cc574a" name="Read TXT as String" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="255" y="255" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The full path the file to read the text from" expr="[textFileName]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="True if successful" stage="success" />
+      <output type="text" name="Message" narrative="An error message if unsuccessful" stage="message" />
+      <output type="text" name="Text" narrative="The text of the file" stage="text" />
+    </outputs>
+    <onsuccess>8cdec09a-6e77-4713-93a8-2cf59405593d</onsuccess>
+    <resource object="Utility - File Management" action="Read All Text from File" />
+  </stage>
+  <stage stageid="8cdec09a-6e77-4713-93a8-2cf59405593d" name="Get Delimited Collection for Txt" type="Code">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="255" y="315" />
+    <inputs>
+      <input type="text" name="CSV" expr="[text]" />
+      <input type="text" name="Delimiter" expr="[delimiter]" />
+      <input type="flag" name="FirstRowIsHeader" expr="False" />
+      <input type="collection" name="Schema" expr="[schema]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="outputCollection" stage="outputCollection" />
+    </outputs>
+    <onsuccess>eb3b0c43-7be5-43c0-b416-da6c64c54649</onsuccess>
+    <code><![CDATA[Const SchemaColumnName As String = "Column Name"
+Const DefaultColumnName As String = "Column "
+Const nonSchemaHeadingIndex As Integer = 0
+
+Dim emptySchema As Boolean = Schema Is Nothing OrElse Schema.Rows.Count = 0
+
+Dim csvValuesList = ParseCsvToList(CSV, Delimiter)
+
+' If we want to parse with no schema and want the first row be used as headings 
+' we need to know what the headings will be.
+Dim nonSchemaHeadings = csvValuesList(nonSchemaHeadingIndex)
+
+' Arrange the column headings into the table first.
+If emptySchema Then
+	For Each columnHeader As String In nonSchemaHeadings
+		Dim colName As String = If(FirstRowIsHeader, columnHeader,
+											 DefaultColumnName & outputCollection.Columns.Count)
+		outputCollection.Columns.Add(colName, GetType(String))
+	Next
+Else
+	For Each columnHeader As DataRow In Schema.Rows
+		Dim colName As String = columnHeader(SchemaColumnName).ToString
+		outputCollection.Columns.Add(colName, GetType(String))
+	Next
+End If
+
+' If the first row is being used for headings then skip those headings / values in csvValuesList.
+Dim startListIndex As Integer = If(FirstRowIsHeader, nonSchemaHeadingIndex + 1, nonSchemaHeadingIndex)
+
+' Insert the csv values into the table row by row.
+For i As Integer = startListIndex To csvValuesList.Count - 1
+	Dim currentRow As Datarow = outputCollection.NewRow
+	outputCollection.Rows.Add(currentRow)
+
+	Dim csvArray = csvValuesList(i)
+	For columnIndex As Integer = 0 To csvArray.Length - 1
+		currentRow.Item(columnIndex) = csvArray(columnIndex)
+	Next
+Next]]></code>
+  </stage>
+  <stage stageid="12ead87a-373b-465b-8ddd-a3a7e4473132" name="outputCollection" type="Collection">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="510" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="eb3b0c43-7be5-43c0-b416-da6c64c54649" name="Create Workbook for Delimited Txt" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="255" y="375" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook should be created. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name of the workbook that Excel has created - this can be changed using the &quot;Save Workbook As&quot; action" stage="workbookName" />
+    </outputs>
+    <onsuccess>e7b895bb-4063-4674-ab83-cbba5e269197</onsuccess>
+    <resource object="MS Excel VBO" action="Create Workbook" />
+  </stage>
+  <stage stageid="e7b895bb-4063-4674-ab83-cbba5e269197" name="Write Delimited Collection to Excel" type="Action">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="255" y="435" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the specified collection should be written. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook within which the data should be written. The default empty value indicates the current workbook within the specified instance." expr="[workbookName]" />
+      <input type="collection" name="Collection" narrative="The collection containing the data which should be written to the worksheet." expr="[outputCollection]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet on which the given data should be written. The default empty value indicates the current sheet within the specified workbook." expr="&quot;Sheet1&quot;" />
+      <input type="text" name="Cell Reference" narrative="The reference at which the collection should be written." expr="&quot;A1&quot;" />
+      <input type="flag" name="Include Column Names" narrative="True to indicate that the column names from the collection should be written out as the first row; False to ignore the column names and just write out the data." expr="False" />
+    </inputs>
+    <onsuccess>d46536af-eb32-4c6e-be97-21cd09591a37</onsuccess>
+    <resource object="MS Excel VBO" action="Write Collection" />
+  </stage>
+  <stage stageid="48eb16f3-1524-4f88-91f1-fd148804752c" name="schema" type="Collection">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-180" y="465" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Column Name" type="text" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="62519b95-57b1-4075-9da2-3f4a97eedf28" name="Recover1" type="Recover">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="-75" y="585" />
+    <onsuccess>895c3e4a-479e-4d4f-9a3b-9772cd805927</onsuccess>
+  </stage>
+  <stage stageid="6a6ef745-3934-4979-b5be-db64e1391cc5" name="Resume1" type="Resume">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="-75" y="705" />
+    <onsuccess>75e566aa-d3fd-46bf-aacd-12fe7c46b128</onsuccess>
+  </stage>
+  <stage stageid="895c3e4a-479e-4d4f-9a3b-9772cd805927" name="errorMsg" type="Calculation">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="-75" y="645" />
+    <onsuccess>6a6ef745-3934-4979-b5be-db64e1391cc5</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="3645d919-56c5-4ddc-8c84-8776f89b82d0" name="statusMsg" type="Data">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <display x="-345" y="345" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="711a3d7f-b0b6-4e38-9d1f-f078bdb99bd6" name="Set status" type="Calculation">
+    <subsheetid>6ab376ad-591c-4640-81a5-293f2aacf5c5</subsheetid>
+    <loginhibit />
+    <display x="30" y="705" />
+    <onsuccess>75e566aa-d3fd-46bf-aacd-12fe7c46b128</onsuccess>
+    <calculation expression="&quot;completed&quot;" stage="statusMsg" />
+  </stage>
+</process>

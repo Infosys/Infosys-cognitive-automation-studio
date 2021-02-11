@@ -1,0 +1,281 @@
+<process name="OBJCreateSQLProfile" version="1.0" bpversion="6.6.0.15260" narrative="" byrefcollection="true" type="object" runmode="Exclusive" shared="True" preferredid="9b2f66d9-3832-48f7-94ff-f1977fbf88c3">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <appdef>
+    <element name="Application Root">
+      <id>06476bad-68e3-455f-a57f-ef979bd4fd45</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>-126</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="aecbfcdd-cc37-48e8-a237-51b4ce2ccbcf" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="0e4f33dd-cb15-4a94-8e5b-d1c390f2aced" type="Normal" published="True">
+    <name>OBJCreateSQLProfile</name>
+    <view>
+      <camerax>52</camerax>
+      <cameray>45</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="8c018c58-7cc7-4e7e-8f02-0d834c599c4b" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>4ffbaa1b-ce41-4907-9b7e-45ccf951c777</onsuccess>
+  </stage>
+  <stage stageid="4ffbaa1b-ce41-4907-9b7e-45ccf951c777" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="662457ed-80b7-4e01-82c0-3259f9693f2d" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+    </imports>
+    <language>visualbasic</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="c9e75639-78a1-4528-8243-c672a37afb24" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>aecbfcdd-cc37-48e8-a237-51b4ce2ccbcf</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="93fe8d6b-e1db-4f24-a635-0e0e4d5523df" name="Start" type="Start">
+    <subsheetid>aecbfcdd-cc37-48e8-a237-51b4ce2ccbcf</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>e2a5747a-039a-4cf7-a93b-3c32cb58fb82</onsuccess>
+  </stage>
+  <stage stageid="e2a5747a-039a-4cf7-a93b-3c32cb58fb82" name="End" type="End">
+    <subsheetid>aecbfcdd-cc37-48e8-a237-51b4ce2ccbcf</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="86f562d8-f8ff-4aac-8c89-3941244c239a" name="Note1" type="Note">
+    <subsheetid>aecbfcdd-cc37-48e8-a237-51b4ce2ccbcf</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="1059a6b7-6a54-472c-8fa1-f393788d6c0c" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-360" y="75" w="180" h="230" />
+  </stage>
+  <stage stageid="1f0d4936-8816-4708-b03f-eb1dbaec6e37" name="OBJCreateSQLProfile" type="SubSheetInfo">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <display x="-360" y="-120" w="150" h="90" />
+  </stage>
+  <stage stageid="752e6757-315d-4264-a3cd-3b9cacfa4f6b" name="Start" type="Start">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <loginhibit />
+    <display x="-90" y="-150" />
+    <inputs>
+      <input type="text" name="serverName" stage="serverName" />
+      <input type="text" name="userName" stage="userName" />
+      <input type="text" name="password" stage="password" />
+      <input type="text" name="userProfileName" stage="userProfileName" />
+      <input type="text" name="newProfileName" stage="newProfileName" />
+      <input type="text" name="newProfilePassword" stage="newProfilePassword" />
+    </inputs>
+    <onsuccess>7c36b20d-7276-4a0b-af94-fc4684093d7d</onsuccess>
+  </stage>
+  <stage stageid="0fb1262f-17d4-45f2-94e6-2767bae06149" name="End1" type="End">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <loginhibit />
+    <display x="-90" y="165" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+      <output type="flag" name="success" stage="success" />
+      <output type="text" name="message" stage="message" />
+    </outputs>
+  </stage>
+  <stage stageid="7c36b20d-7276-4a0b-af94-fc4684093d7d" name="Connect SQL" type="Action">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <loginhibit />
+    <display x="-90" y="-30" />
+    <inputs>
+      <input type="text" name="Server" narrative="The name of the server and, if necessary, instance name of the SQL Server instance to connect to" expr="[serverName]" />
+      <input type="text" name="Database" narrative="The name of the database to connect to" expr="&quot;master&quot;" />
+      <input type="text" name="User" narrative="If appropriate, the login name to use to connect to SQL Server. If left empty, windows authentication using the current user will be used instead of SQL Server authentication" expr="[userName]" />
+      <input type="text" name="Password" narrative="If appropriate, the password to use with the above login name to access SQL Server. Unused for windows authentication" expr="[password]" />
+    </inputs>
+    <onsuccess>5621b39f-0cba-4091-87b5-b4fd1785d2f1</onsuccess>
+    <resource object="Data - SQL Server" action="Set Connection" />
+  </stage>
+  <stage stageid="5621b39f-0cba-4091-87b5-b4fd1785d2f1" name="Execute" type="Action">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <loginhibit />
+    <display x="-90" y="45" />
+    <inputs>
+      <input type="text" name="Query" narrative="The SQL query to use to perform this action" expr="&quot;CREATE LOGIN &quot; &amp;[userProfileName]&amp;&quot;  WITH PASSWORD = '&quot;&amp;[newProfilePassword]&amp;&quot;'  CREATE USER &quot;&amp;[newProfileName]&amp;&quot; FOR LOGIN &quot;&amp;[userProfileName]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="Flag indicating success (True) or failure (False)" stage="success" />
+      <output type="text" name="Message" narrative="Error message giving detail regarding why this action failed" stage="message" />
+    </outputs>
+    <onsuccess>d6ac3571-eaad-41e1-8e6c-8467fbec6e50</onsuccess>
+    <resource object="Data - SQL Server" action="Execute" />
+  </stage>
+  <stage stageid="c0d7c9ab-758b-4baa-b107-6a699ee10b63" name="Block2" type="Block">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <loginhibit />
+    <display x="-150" y="-180" w="225" h="375" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="69ccf03b-8f44-4368-80cf-ff2c5a2b90cc" name="Input" type="Block">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <loginhibit />
+    <display x="150" y="-105" w="270" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="b129c7fd-5a4e-454d-ad79-e334fa9e0a12" name="statusMsg" type="Data">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <display x="225" y="195" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="221ddc12-b152-4603-a3e2-060f3c36cc0a" name="Output" type="Block">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <loginhibit />
+    <display x="180" y="135" w="210" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="c6f5f1a5-bb43-433b-a414-b1d05c8ed88e" name="Recover1" type="Recover">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <loginhibit />
+    <display x="-225" y="-15" />
+    <onsuccess>ace3a9f9-4d0d-4fc3-9c04-838e23dfd90e</onsuccess>
+  </stage>
+  <stage stageid="45eae47c-3a4a-4f39-8661-f22a5d406171" name="Resume1" type="Resume">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <loginhibit />
+    <display x="-225" y="165" />
+    <onsuccess>0fb1262f-17d4-45f2-94e6-2767bae06149</onsuccess>
+  </stage>
+  <stage stageid="ace3a9f9-4d0d-4fc3-9c04-838e23dfd90e" name="errorMsg" type="Calculation">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <loginhibit />
+    <display x="-225" y="75" />
+    <onsuccess>45eae47c-3a4a-4f39-8661-f22a5d406171</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="c10f0f8e-0eba-4c2a-b305-b736dc2a8e63" name="serverName" type="Data">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <display x="285" y="-15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cecceeea-4dae-4391-9801-a859014e5f94" name="userName" type="Data">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <display x="210" y="-75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cf46b353-5a22-426c-ad32-3274b530ef54" name="password" type="Data">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <display x="195" y="-15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="704a140d-2a17-4c77-9dc9-5b6f66cf3fa4" name="userProfileName" type="Data">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <display x="285" y="-75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a0c3caad-98dc-4776-9e8d-82de91568d06" name="newProfileName" type="Data">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <display x="360" y="-75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="50df0467-8e4d-418a-9db3-43187f0dea0b" name="newProfilePassword" type="Data">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <display x="360" y="-15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2af56a92-a22b-4df4-be5d-a3719657805b" name="success" type="Data">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <display x="285" y="165" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="39bf8efb-c980-4547-8659-db2989fab238" name="message" type="Data">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <display x="330" y="195" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1a004bf7-5e40-4488-9a22-e13df1903560" name="set status" type="Calculation">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <loginhibit />
+    <display x="-90" y="105" />
+    <onsuccess>0fb1262f-17d4-45f2-94e6-2767bae06149</onsuccess>
+    <calculation expression="&quot;Completed&quot;" stage="statusMsg" />
+  </stage>
+  <stage stageid="d6ac3571-eaad-41e1-8e6c-8467fbec6e50" name="Decision1" type="Decision">
+    <subsheetid>0e4f33dd-cb15-4a94-8e5b-d1c390f2aced</subsheetid>
+    <loginhibit />
+    <display x="-15" y="75" />
+    <decision expression="[message]=&quot;&quot;" />
+    <ontrue>1a004bf7-5e40-4488-9a22-e13df1903560</ontrue>
+    <onfalse>0fb1262f-17d4-45f2-94e6-2767bae06149</onfalse>
+  </stage>
+</process>

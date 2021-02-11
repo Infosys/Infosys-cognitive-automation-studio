@@ -1,0 +1,84 @@
+<process name="SearchKeyWordWithinFolder" version="1.0" bpversion="6.6.0.15260" narrative="Looking-up on files(.txt and .csv only) within a folder, for specified keyword. Can be used for log-files." byrefcollection="true" preferredid="79e6aeb3-5c1d-49b2-a39f-586ae8030dd1" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="9ab55a03-796f-486b-923b-1bcc05433262" name="Start" type="Start">
+    <display x="15" y="-30" />
+    <inputs>
+      <input type="text" name="folderName" stage="folderName" />
+      <input type="text" name="keyword" stage="keyword" />
+    </inputs>
+    <onsuccess>6867eb83-73e3-46a2-a1a0-470db32e877f</onsuccess>
+  </stage>
+  <stage stageid="e13c4db2-ea38-4e70-bc0b-9e2cc048f869" name="End" type="End">
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="stringOfFiles" stage="stringOfFiles" />
+      <output type="text" name="status" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="769cd7ab-e882-4a2b-bedc-4283dc898cdd" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="6867eb83-73e3-46a2-a1a0-470db32e877f" name="BfSearchKeyWordWithinFolder::Main" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="30" />
+    <inputs>
+      <input type="text" name="folderName" friendlyname="folderName" expr="[folderName]" />
+      <input type="text" name="keyword" friendlyname="keyword" expr="[keyword]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="stringOfFiles" friendlyname="stringOfFiles" stage="stringOfFiles" />
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>e13c4db2-ea38-4e70-bc0b-9e2cc048f869</onsuccess>
+    <resource object="OBJSearchKeyWordWithinFolder" action="Main" />
+  </stage>
+  <stage stageid="57201b69-73c2-464e-b038-55d061bbcbfc" name="folderName" type="Data">
+    <display x="-240" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c2d62f9b-ff3c-4e69-9f96-109afcd22d07" name="keyword" type="Data">
+    <display x="-240" y="60" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+  </stage>
+  <stage stageid="287a5351-7f80-40fb-b3df-1143edac3022" name="stringOfFiles" type="Data">
+    <display x="-135" y="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="077bb6bf-78a6-4c82-92dc-68c1e485ce9e" name="statusMsg" type="Data">
+    <display x="-135" y="90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f67eeefe-0ec4-425a-8ae8-ad3b737398ac" name="input" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-300" y="0" w="105" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="c1df819d-4a17-4e3f-aba3-c8baead58675" name="output" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-180" y="-15" w="90" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+</process>

@@ -1,0 +1,416 @@
+<process name="OBJDeleteTempFilesFromDisk" version="1.0" bpversion="6.6.0.15260" narrative="" byrefcollection="true" type="object" runmode="Exclusive" preferredid="5d492ffe-f55b-4d40-8bb1-8254d23f40b8">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <appdef>
+    <element name="Cmd">
+      <id>9e54d8c2-4523-42d6-9824-73bb92b25b17</id>
+      <group name="Element1">
+        <id>beebc5f9-d15d-48f1-a92e-f45b3302cdaa</id>
+      </group>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+    <apptypeinfo>
+      <id>Win32Launch</id>
+      <parameters>
+        <parameter>
+          <name>Path</name>
+          <value>C:\Windows\System32\cmd.exe</value>
+        </parameter>
+        <parameter>
+          <name>CommandLineParams</name>
+          <value>
+          </value>
+        </parameter>
+        <parameter>
+          <name>WorkingDirectory</name>
+          <value>
+          </value>
+        </parameter>
+        <parameter>
+          <name>NonInvasive</name>
+          <value>True</value>
+        </parameter>
+        <parameter>
+          <name>ProcessMode</name>
+          <value>Internal</value>
+        </parameter>
+        <parameter>
+          <name>ExternalProcessTimeout</name>
+          <value>0</value>
+        </parameter>
+        <parameter>
+          <name>Options</name>
+          <value>
+          </value>
+        </parameter>
+      </parameters>
+    </apptypeinfo>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="f9c35744-68ee-465f-a55d-e394bd86835b" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="b57ba853-ba02-4d36-8d2f-27155c46ec6b" type="Normal" published="True">
+    <name>Main Process</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="4db8f93f-abaf-4649-9bdd-188dbc8b285a" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>cf90e733-619a-4d85-8d2e-602b3b9fa814</onsuccess>
+  </stage>
+  <stage stageid="cf90e733-619a-4d85-8d2e-602b3b9fa814" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="651fdb5c-1e3c-4a00-8174-63ee4796454f" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+    </imports>
+    <language>visualbasic</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="1a3299e6-fb51-42e1-97a9-db303bd99e9e" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>f9c35744-68ee-465f-a55d-e394bd86835b</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="f51317df-ea6a-409a-9586-04620879f3f3" name="Start" type="Start">
+    <subsheetid>f9c35744-68ee-465f-a55d-e394bd86835b</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>ea9986fc-ad9b-4bc7-b5ac-5a705b227f56</onsuccess>
+  </stage>
+  <stage stageid="ea9986fc-ad9b-4bc7-b5ac-5a705b227f56" name="End" type="End">
+    <subsheetid>f9c35744-68ee-465f-a55d-e394bd86835b</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="a9481607-8c5e-48cb-9c49-f1f2f8a663da" name="Main Process" type="SubSheetInfo">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="e542fc4c-fd14-4478-a66b-acac3a6aae70" name="Start" type="Start">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="15" y="-150" />
+    <onsuccess>3fa1d96a-4418-40fa-945d-58d194b5cd8f</onsuccess>
+  </stage>
+  <stage stageid="1120c906-e59b-41d2-b73b-98df06764e57" name="End" type="End">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="15" y="165" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="17867251-bae1-4765-aad5-bcdcecf4aa50" name="Note1" type="Note">
+    <subsheetid>f9c35744-68ee-465f-a55d-e394bd86835b</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="92d6ef17-bbd7-43f9-90be-53ff083c7e96" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="43edc202-ebc2-4f81-9ffc-64a4debc106f" name="Start Process" type="Action">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="15" y="-60" />
+    <inputs>
+      <input type="text" name="Application" narrative="The application or short cut to start" expr="&quot;C:\Windows\System32\cmd.exe&quot;" />
+      <input type="text" name="Arguments" narrative="Any arguments needed for the app" expr="" />
+    </inputs>
+    <onsuccess>9662d7b8-7a5e-44dd-8e5d-8eeb5499e3ac</onsuccess>
+    <resource object="Utility - Environment" action="Start Process" />
+  </stage>
+  <stage stageid="eae85ff4-8bf1-4b2b-87f8-9d4228bf6f5e" name="Attach" type="Navigate" interval="5">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" />
+    <onsuccess>98fd9923-961f-4c3d-a1ae-c23a3521ccdb</onsuccess>
+    <step>
+      <element id="9e54d8c2-4523-42d6-9824-73bb92b25b17" />
+      <action>
+        <id>AttachApplication</id>
+        <arguments>
+          <argument>
+            <id>ChildIndex</id>
+            <value>
+            </value>
+          </argument>
+          <argument>
+            <id>Username</id>
+            <value>
+            </value>
+          </argument>
+          <argument>
+            <id>ProcessID</id>
+            <value>
+            </value>
+          </argument>
+          <argument>
+            <id>ProcessName</id>
+            <value>"cmd"</value>
+          </argument>
+          <argument>
+            <id>WindowTitle</id>
+            <value>
+            </value>
+          </argument>
+          <argument>
+            <id>WindowTitlesCollection</id>
+            <value>
+            </value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
+    <step>
+      <element id="9e54d8c2-4523-42d6-9824-73bb92b25b17" />
+      <action>
+        <id>SendKeys</id>
+        <arguments>
+          <argument>
+            <id>newtext</id>
+            <value>"cd\"</value>
+          </argument>
+          <argument>
+            <id>interval</id>
+            <value>
+            </value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
+    <step>
+      <element id="9e54d8c2-4523-42d6-9824-73bb92b25b17" />
+      <action>
+        <id>SendKeys</id>
+        <arguments>
+          <argument>
+            <id>newtext</id>
+            <value>"{ENTER}"</value>
+          </argument>
+          <argument>
+            <id>interval</id>
+            <value>
+            </value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
+    <step>
+      <element id="9e54d8c2-4523-42d6-9824-73bb92b25b17" />
+      <action>
+        <id>SendKeys</id>
+        <arguments>
+          <argument>
+            <id>newtext</id>
+            <value>" cd \Users\"&amp;[User Name]&amp;"\AppData\Local\Temp\11"</value>
+          </argument>
+          <argument>
+            <id>interval</id>
+            <value>
+            </value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
+    <step>
+      <element id="9e54d8c2-4523-42d6-9824-73bb92b25b17" />
+      <action>
+        <id>SendKeys</id>
+        <arguments>
+          <argument>
+            <id>newtext</id>
+            <value>"{ENTER}"</value>
+          </argument>
+          <argument>
+            <id>interval</id>
+            <value>
+            </value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
+  </stage>
+  <stage stageid="6a800bcf-f89f-4747-99e1-00f04ed3d1eb" name="Remove Files " type="Navigate" interval="5">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="15" y="75" />
+    <onsuccess>306dedf8-a72f-4ec9-855d-ffdfc2af11e8</onsuccess>
+    <step>
+      <element id="9e54d8c2-4523-42d6-9824-73bb92b25b17" />
+      <action>
+        <id>SendKeys</id>
+        <arguments>
+          <argument>
+            <id>newtext</id>
+            <value>"del /q/f/s {%}TEMP{%}\*"</value>
+          </argument>
+          <argument>
+            <id>interval</id>
+            <value>
+            </value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
+    <step>
+      <element id="9e54d8c2-4523-42d6-9824-73bb92b25b17" />
+      <action>
+        <id>SendKeys</id>
+        <arguments>
+          <argument>
+            <id>newtext</id>
+            <value>"{ENTER}"</value>
+          </argument>
+          <argument>
+            <id>interval</id>
+            <value>
+            </value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
+  </stage>
+  <stage stageid="0ebc04f4-5a99-4377-84ba-2e2002a97091" name="Time Out1" type="WaitEnd">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="-90" y="-15" w="30" h="30" />
+    <onsuccess>eae85ff4-8bf1-4b2b-87f8-9d4228bf6f5e</onsuccess>
+    <groupid>3ac9f903-342b-4cfa-830f-bbf24df8264a</groupid>
+  </stage>
+  <stage stageid="9662d7b8-7a5e-44dd-8e5d-8eeb5499e3ac" name="Wait1" type="WaitStart">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="-90" y="-60" w="30" h="30" />
+    <groupid>3ac9f903-342b-4cfa-830f-bbf24df8264a</groupid>
+    <choices />
+    <timeout>5</timeout>
+  </stage>
+  <stage stageid="b1625546-c210-401a-8304-12b9c35d220c" name="Time Out2" type="WaitEnd">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="-90" y="75" w="30" h="30" />
+    <onsuccess>6a800bcf-f89f-4747-99e1-00f04ed3d1eb</onsuccess>
+    <groupid>d6066fd4-fcd0-44e9-a995-ed56038e0620</groupid>
+  </stage>
+  <stage stageid="6028e66a-532b-4cb6-b54e-0ee13ed67afd" name="Wait2" type="WaitStart">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="-90" y="30" w="30" h="30" />
+    <groupid>d6066fd4-fcd0-44e9-a995-ed56038e0620</groupid>
+    <choices />
+    <timeout>5</timeout>
+  </stage>
+  <stage stageid="98fd9923-961f-4c3d-a1ae-c23a3521ccdb" name="Anchor1" type="Anchor">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="15" y="30" w="10" h="10" />
+    <onsuccess>6028e66a-532b-4cb6-b54e-0ee13ed67afd</onsuccess>
+  </stage>
+  <stage stageid="37da9790-40ce-4c9a-ab09-00f4b6f48e0e" name="User Name" type="Data">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="195" y="-15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3fa1d96a-4418-40fa-945d-58d194b5cd8f" name="Get User Name" type="Action">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <outputs>
+      <output type="text" name="User Name" narrative="The name of the logged in user in the current system" stage="User Name" />
+    </outputs>
+    <onsuccess>43edc202-ebc2-4f81-9ffc-64a4debc106f</onsuccess>
+    <resource object="Utility - Environment" action="Get User Name" />
+  </stage>
+  <stage stageid="4c06c807-04ff-4abc-b50a-2abad12db202" name="Recover1" type="Recover">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="390" y="0" />
+    <onsuccess>2a344e92-2a84-4f41-9fdc-92c0557807ba</onsuccess>
+  </stage>
+  <stage stageid="f7cb0bac-5007-4ae4-b76e-bd81e3605af8" name="Resume1" type="Resume">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="390" y="105" />
+    <onsuccess>1120c906-e59b-41d2-b73b-98df06764e57</onsuccess>
+  </stage>
+  <stage stageid="2a344e92-2a84-4f41-9fdc-92c0557807ba" name="Error msg" type="Calculation">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="390" y="45" />
+    <onsuccess>f7cb0bac-5007-4ae4-b76e-bd81e3605af8</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="statusMsg" />
+  </stage>
+  <stage stageid="e4d847f2-af63-4e1d-9881-a92828837186" name="statusMsg" type="Data">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <display x="255" y="180" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">NA</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b80409ae-532a-4d30-8901-f361b4334e9c" name="output" type="Block">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="210" y="150" w="75" h="45" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="306dedf8-a72f-4ec9-855d-ffdfc2af11e8" name="Set status" type="Calculation">
+    <subsheetid>b57ba853-ba02-4d36-8d2f-27155c46ec6b</subsheetid>
+    <loginhibit />
+    <display x="15" y="120" />
+    <onsuccess>1120c906-e59b-41d2-b73b-98df06764e57</onsuccess>
+    <calculation expression="&quot;completed&quot;" stage="statusMsg" />
+  </stage>
+</process>

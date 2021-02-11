@@ -1,0 +1,76 @@
+<process name="HideWorkSheet" version="1.0" bpversion="6.6.0.15260" narrative="This process is used to hide a worksheet in a specified workbook." byrefcollection="true" preferredid="b781f382-e6a3-488d-96fd-a004cbac824e" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="89c256f1-b828-469f-9878-0e59b30ac233" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="sourcePath" stage="sourcePath" />
+      <input type="text" name="worksheetName" stage="worksheetName" />
+    </inputs>
+    <onsuccess>173fdf8d-be60-40c8-83da-985062991fda</onsuccess>
+  </stage>
+  <stage stageid="d6b64b82-6479-4dd3-a3e3-51614eec4e04" name="End" type="End">
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="87c237b6-87ee-4984-923d-baf5011b72f4" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="173fdf8d-be60-40c8-83da-985062991fda" name="HideWorkSheet" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="sourcePath" friendlyname="sourcePath" expr="[sourcePath]" />
+      <input type="text" name="worksheetName" friendlyname="worksheetName" expr="[worksheetName]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="statusMsg" friendlyname="statusMsg" stage="statusMsg" />
+    </outputs>
+    <onsuccess>d6b64b82-6479-4dd3-a3e3-51614eec4e04</onsuccess>
+    <resource object="OBJHideWorksheet" action="HideWorkSheet" />
+  </stage>
+  <stage stageid="2013ac2b-377b-4242-b61d-7cfaa9245223" name="Input" type="Block">
+    <loginhibit />
+    <display x="-345" y="-30" w="105" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="67c5a9a3-6c3d-46af-ae5c-b275a8e86e7d" name="sourcePath" type="Data">
+    <display x="-285" y="0" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Users\ankit.mishra15\Desktop\RPA\myBots\BluePrism\7thMay\HideWorksheet\HideWorksheet\testData\inputFile.xlsx</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="21411980-cf86-48cd-8f2f-d27f2f97347d" name="statusMsg" type="Data">
+    <display x="-150" y="15" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">Completed</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e9831931-d2de-461b-b86f-5e3ea932831f" name="Output" type="Block">
+    <loginhibit />
+    <display x="-195" y="-30" w="90" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="bf14efad-e3e2-490c-a4ef-fa66a4dd2447" name="worksheetName" type="Data">
+    <display x="-285" y="45" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">Sheet2</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+</process>

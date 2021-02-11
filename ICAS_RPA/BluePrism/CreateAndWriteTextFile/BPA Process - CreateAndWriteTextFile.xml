@@ -1,0 +1,66 @@
+<process name="CreateAndWriteTextFile" version="1.0" bpversion="6.6.0.15260" narrative="" byrefcollection="true" preferredid="7eef5df9-8431-4fce-94bc-0bc5575d4be7" published="true">
+<stage stageid="200ebdc1-7905-42c3-93f6-3f6d2213de82" name="Copyright" type="Note">
+    <narrative>Copyright 2020 Infosys Ltd.
+Use of this source code is governed by Apache 2.0 license that can be found in the LICENSE file or at
+https://opensource.org/licenses/Apache-2.0 </narrative>
+    <display x="195" y="-150" w="210" h="60" />
+  </stage>
+  <view>
+    <camerax>-74</camerax>
+    <cameray>42</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="1d7d2f58-f3d3-413e-aefc-e4632dc6788e" name="Start" type="Start">
+    <display x="-90" y="-105" />
+    <inputs>
+      <input type="text" name="path" stage="path" />
+      <input type="text" name="content" stage="content" />
+    </inputs>
+    <onsuccess>34f1131e-39a4-4b4b-8871-174f364b809e</onsuccess>
+  </stage>
+  <stage stageid="64e0566e-370e-4d7a-ab26-e02ccb3b6862" name="End" type="End">
+    <display x="-90" y="45" />
+    <outputs>
+      <output type="text" name="statusMsg" stage="statusMsg" />
+    </outputs>
+  </stage>
+  <stage stageid="2fa6541f-fb93-4f03-b3a9-95b2478cecc9" name="Stage1" type="ProcessInfo">
+    <display x="-315" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="f1fd76b9-d934-420c-89cc-ac72f1240ea6" name="path" type="Data">
+    <display x="-285" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="dd185ae9-abde-4fa4-8564-eb7ea4685eda" name="content" type="Data">
+    <display x="-285" y="60" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="34f1131e-39a4-4b4b-8871-174f364b809e" name="OBJCreateAndWriteTextFile::Main" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="-90" y="-30" />
+    <inputs>
+      <input type="text" name="path" friendlyname="path" narrative="path" expr="[path]" />
+      <input type="text" name="Note Text" friendlyname="Note Text" narrative="content" expr="[content]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="statusMsg" friendlyname="statusMsg" narrative="status of the process execution" stage="statusMsg" />
+    </outputs>
+    <onsuccess>64e0566e-370e-4d7a-ab26-e02ccb3b6862</onsuccess>
+    <resource object="OBJCreateAndWriteTextFile" action="Main" />
+  </stage>
+  <stage stageid="67c32241-c84b-480a-84a8-e0ea5d226fe3" name="statusMsg" type="Data">
+    <display x="-270" y="120" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+</process>
